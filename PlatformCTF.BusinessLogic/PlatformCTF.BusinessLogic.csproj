@@ -7,8 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Core\" />
-    <Folder Include="Interfaces\" />
+    <ProjectReference Include="..\PlatformCTF.Helpers\PlatformCTF.Helpers.csproj" />
   </ItemGroup>
 
 </Project>

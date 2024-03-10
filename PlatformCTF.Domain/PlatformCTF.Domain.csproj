@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PlatformCTF.BusinessLogic\PlatformCTF.BusinessLogic.csproj" />
+    <ProjectReference Include="..\PlatformCTF.Helpers\PlatformCTF.Helpers.csproj" />
+  </ItemGroup>
+
 </Project>

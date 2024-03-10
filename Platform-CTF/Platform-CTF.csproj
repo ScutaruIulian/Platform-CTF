@@ -94,9 +94,11 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -113,8 +115,22 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\Login\" />
     <Folder Include="Views\Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PlatformCTF.BusinessLogic\PlatformCTF.BusinessLogic.csproj">
+      <Project>{1c418b36-d647-40ea-bd45-afc09713b96b}</Project>
+      <Name>PlatformCTF.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlatformCTF.Domain\PlatformCTF.Domain.csproj">
+      <Project>{d0b1fe73-5939-4bd8-ace0-8ad3b69cc3a0}</Project>
+      <Name>PlatformCTF.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlatformCTF.Helpers\PlatformCTF.Helpers.csproj">
+      <Project>{01df7066-49e6-442a-8974-6c5d8f571f39}</Project>
+      <Name>PlatformCTF.Helpers</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
