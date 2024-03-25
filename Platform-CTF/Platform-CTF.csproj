@@ -120,15 +120,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PlatformCTF.BusinessLogic\PlatformCTF.BusinessLogic.csproj">
-      <Project>{1c418b36-d647-40ea-bd45-afc09713b96b}</Project>
+      <Project>{6d05f2fe-40b6-4d7c-b983-414fe721383f}</Project>
       <Name>PlatformCTF.BusinessLogic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PlatformCTF.Domain\PlatformCTF.Domain.csproj">
-      <Project>{d0b1fe73-5939-4bd8-ace0-8ad3b69cc3a0}</Project>
-      <Name>PlatformCTF.Domain</Name>
+    <ProjectReference Include="..\PlatformCTF.Domains\PlatformCTF.Domains.csproj">
+      <Project>{9b3286d1-a453-43b1-beb8-dbc0ce66cbdc}</Project>
+      <Name>PlatformCTF.Domains</Name>
     </ProjectReference>
     <ProjectReference Include="..\PlatformCTF.Helpers\PlatformCTF.Helpers.csproj">
-      <Project>{01df7066-49e6-442a-8974-6c5d8f571f39}</Project>
+      <Project>{266714aa-4b71-4fbe-b47b-a73038aed313}</Project>
       <Name>PlatformCTF.Helpers</Name>
     </ProjectReference>
   </ItemGroup>

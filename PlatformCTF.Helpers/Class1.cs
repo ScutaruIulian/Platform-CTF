@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.Core
+namespace PlatformCTF.Helpers
 {
-    public class UserApi
+    public class Class1
     {
-
     }
 }

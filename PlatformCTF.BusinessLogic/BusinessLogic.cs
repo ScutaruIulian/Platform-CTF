@@ -1,12 +1,17 @@
-﻿using BusinessLogic.Interfaces;
+﻿using PlatformCTF.BusinessLogic.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BusinessLogic
+namespace PlatformCTF.BusinessLogic
 {
     public class BusinessLogic
     {
-        public ISession GetSessionBl()
+        public ISession GetSessionBL()
         {
-            return new SessionBl();
+            return new Session();
         }
     }
 }
