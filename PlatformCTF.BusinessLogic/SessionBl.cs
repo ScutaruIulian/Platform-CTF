@@ -7,13 +7,15 @@ namespace PlatformCTF.BusinessLogic
 {
     public class SessionBl : UserApi, ISession
     {
-        public bool UserLogin(ULoginData uLoginData)
+        public UserLogin UserLogin(ULoginData uLoginData)
         {
-            return true;
+            UserLogin userLogin = new UserLogin();
+            return userLogin;
         }
-        public bool UserRegister(URegisterData uRegisterData)
+        public UserRegister UserRegister(URegisterData uRegisterData)
         {
-            return true;
+            UserRegister userRegister = new UserRegister();
+            return userRegister;
         }
     }
 }
