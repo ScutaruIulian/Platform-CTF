@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PlatformCTF.Domains.Enums;
+using System;
 
-namespace PlatformCTF.Domains.EntitiesUser
+
+namespace PlatformCTF.Domains.Entities.User
 {
     public class ULoginData
     {
@@ -15,5 +13,6 @@ namespace PlatformCTF.Domains.EntitiesUser
         public DateTime LoginDateTime { get; set; }
 
         public string LoginIp { get; set; }
+        public URole Level { get; set; }
     }
 }

@@ -1,22 +1,19 @@
-﻿using PlatformCTF.BusinessLogic.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessLogic.Core;
+using PlatformCTF.BusinessLogic.Interfaces;
+using PlatformCTF.Domains.Entities.User;
+
 
 namespace PlatformCTF.BusinessLogic
 {
-    public class SessionBL : ISession
+    public class SessionBl : UserApi, ISession
     {
-        public bool UserLogin(ULoginData uloginData)
+        public bool UserLogin(ULoginData uLoginData)
         {
-            throw new NotImplementedException();
+            return true;
         }
-
-        public bool UserLogin(UloginData uloginData)
+        public bool UserRegister(URegisterData uRegisterData)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }

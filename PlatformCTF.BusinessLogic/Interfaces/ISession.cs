@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PlatformCTF.Domains.Entities.User;
 
 namespace PlatformCTF.BusinessLogic.Interfaces
 {
     public interface ISession
     { 
-        bool UserLogin(UloginData uloginData); 
+        bool UserLogin(ULoginData uloginData); 
+
+        bool UserRegister(URegisterData uregisterData);
     }
 
 }

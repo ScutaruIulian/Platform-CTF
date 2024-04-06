@@ -1,9 +1,5 @@
 ﻿using PlatformCTF.BusinessLogic.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace PlatformCTF.BusinessLogic
 {
@@ -11,7 +7,7 @@ namespace PlatformCTF.BusinessLogic
     {
         public ISession GetSessionBL()
         {
-            return new Session();
+            return new SessionBl();
         }
     }
 }

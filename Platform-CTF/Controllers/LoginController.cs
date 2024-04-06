@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Web.Mvc;
-using BusinessLogic.Interfaces;
-using Domain.Entities.User;
+using PlatformCTF.BusinessLogic.Interfaces;
 using Platform_CTF.Models;
+using PlatformCTF.Domains.Entities.User;
 
 namespace Platform_CTF.Controllers
 {
@@ -12,8 +12,8 @@ namespace Platform_CTF.Controllers
 
         public LoginController()
         {
-            var bl = new BusinessLogic.BusinessLogic();
-            _session = bl.GetSessionBl();
+            var bl = new PlatformCTF.BusinessLogic.BusinessLogic();
+            _session = bl.GetSessionBL();
         }
 
         // Aquire login
