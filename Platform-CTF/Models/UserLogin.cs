@@ -1,10 +1,16 @@
-﻿namespace Platform_CTF.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Platform_CTF.Models
 {
     public class UserLogin
     {
+        [Required]
+        [Display(Name = "Username or Email")]
         public string Credentials { get; set; }
-        public string Password { get; set; }
 
-        public bool Status { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
+        public string Password { get; set; }
     }
 }

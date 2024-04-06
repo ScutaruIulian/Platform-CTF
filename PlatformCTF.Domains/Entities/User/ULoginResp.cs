@@ -10,6 +10,6 @@ namespace PlatformCTF.Domains.Entities.User
     {
         public bool Status { get; set; }
 
-        public string StatusMessage { get; set; }
+        public string StatusMsg { get; set; }
     }
 }

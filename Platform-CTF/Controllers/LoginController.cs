@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using PlatformCTF.BusinessLogic.Interfaces;
 using Platform_CTF.Models;
 using PlatformCTF.Domains.Entities.User;
+using System.Web.UI.WebControls;
 
 namespace Platform_CTF.Controllers
 {
@@ -20,7 +21,7 @@ namespace Platform_CTF.Controllers
         public ActionResult Index()
         {
             //return View();
-            return null;
+            return View();
         }
 
         [HttpPost]
@@ -40,17 +41,18 @@ namespace Platform_CTF.Controllers
                 var userLogin = _session.UserLogin(data);
                 if (userLogin)
                 {
+                    //ADD COOKIE
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    //ModelState.AddModelError("", userLogin); wip
-                    return null;
+                    ModelState.AddModelError("", userLogin.StatusMsg);
+                    return View();
                 }
             }
 
             //return View();
-            return null;
+            return View();
         }
     }
 }

@@ -4,9 +4,9 @@ namespace PlatformCTF.BusinessLogic.Interfaces
 {
     public interface ISession
     { 
-        bool UserLogin(ULoginData uloginData); 
+        ULoginResp UserLogin(ULoginData uloginData); 
 
-        bool UserRegister(URegisterData uregisterData);
+        ULoginResp UserRegister(URegisterData uregisterData);
     }
 
 }
