@@ -18,7 +18,7 @@ namespace PlatformCTF.Domains.Entities.User
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public string password { get; set; }
+        public string Password { get; set; }
 
         public DateTime RegisterDateTime { get; set; }
         public URole Level { get; set; }

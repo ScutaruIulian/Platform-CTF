@@ -1,6 +1,7 @@
 ﻿using BusinessLogic.Core;
 using PlatformCTF.BusinessLogic.Interfaces;
 using PlatformCTF.Domains.Entities.User;
+using System;
 
 
 namespace PlatformCTF.BusinessLogic
