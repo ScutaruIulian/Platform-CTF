@@ -20,7 +20,6 @@ namespace Platform_CTF.Controllers
         // Aquire login
         public ActionResult Index()
         {
-            //return View();
             return View();
         }
 
@@ -39,7 +38,7 @@ namespace Platform_CTF.Controllers
                 };
 
                 var userLogin = _session.UserLogin(data);
-                if (userLogin)
+                if (userLogin != null)
                 {
                     //ADD COOKIE
                     return RedirectToAction("Index", "Home");
