@@ -38,7 +38,7 @@ namespace PlatformCTF.Controllers
                 if (userRegister != null && userRegister.Status)
                 {
                     //ADD COOKIE
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Home");
                 }
                 else
                 {
