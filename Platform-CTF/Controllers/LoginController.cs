@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Web;
 using System.Web.Mvc;
-using PlatformCTF.BusinessLogic.Interfaces;
-using Platform_CTF.Models;
+using AutoMapper;
 using PlatformCTF.Domains.Entities.User;
-using System.Web.UI.WebControls;
+using Platform_CTF.Models;
+using PlatformCTF.BusinessLogic.Interfaces;
 
-namespace Platform_CTF.Controllers
+namespace PlatformCTF.Web.Controllers
 {
     public class LoginController : Controller
     {
@@ -13,14 +14,15 @@ namespace Platform_CTF.Controllers
 
         public LoginController()
         {
-            var bl = new PlatformCTF.BusinessLogic.BusinessLogic();
+            var bl = new BusinessLogic.BusinessLogic();
             _session = bl.GetSessionBL();
         }
 
-        // Aquire login
+        // GET: Login
         public ActionResult Index()
         {
-            return View();
+            //return View();
+            return null;
         }
 
         [HttpPost]
@@ -29,29 +31,31 @@ namespace Platform_CTF.Controllers
         {
             if (ModelState.IsValid)
             {
-                ULoginData data = new ULoginData
-                {
-                    Credentials = login.Credentials,
-                    Password = login.Password,
-                    LoginDateTime = DateTime.Now,
-                    LoginIp = Request.UserHostAddress
-                };
+                var config = new MapperConfiguration(cfg => cfg.CreateMap<UserLogin, ULoginData>());
+                var mapper = config.CreateMapper();
+                var data = mapper.Map<ULoginData>(login);
+
+                data.LoginIp = Request.UserHostAddress;
+                data.LoginDateTime = DateTime.Now;
 
                 var userLogin = _session.UserLogin(data);
-                if (userLogin != null)
+                if (userLogin.Status)
                 {
-                    //ADD COOKIE
+                    HttpCookie cookie = _session.GenCookie(login.Credentials);
+                    ControllerContext.HttpContext.Response.Cookies.Add(cookie);
+
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
                     ModelState.AddModelError("", userLogin.StatusMsg);
-                    return View();
+                    //return View();
+                    return null;
                 }
             }
 
             //return View();
-            return View();
+            return null;
         }
     }
 }
