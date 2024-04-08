@@ -29,7 +29,9 @@ namespace PlatformCTF.Domains.Entities.User
 
         [DataType(DataType.Date)]
         public DateTime LastLogin { get; set; }
-
+        
+        [StringLength(30)]
+        public string LasIp { get; set; }
         public URole Level { get; set; }
     }
 }

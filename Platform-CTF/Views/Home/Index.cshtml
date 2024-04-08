@@ -1,1 +1,69 @@
-﻿
+﻿@{
+    ViewBag .Title = "Home";
+    
+}
+
+<!DOCTYPE html>
+ 
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>QWERTY CTF Home Page</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>QWERTY CTF Home Page</title>
+    <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f0f0f0;
+            }
+
+            .home {
+                text-align: center;
+                margin-top: 100px;
+            }
+
+            .auth {
+                list-style: none;
+                padding: 0;
+                margin-bottom: 10px;
+            }
+
+                .auth button {
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    border: none;
+                    background-color: #007bff;
+                    color: #fff;
+                    cursor: pointer;
+                    border-radius: 5px;
+                }
+
+                    .auth button:hover {
+                        background-color: #0056b3;
+                    }
+        </style>
+</head>
+
+<body>
+  
+<div class="home">
+    <h2>QWERTY CTF Home Page</h2>
+    <ul class="auth">
+        <form action="@Url.Action("", "Login")" method="get">
+            <button type="submit">Login</button>
+        </form>
+    </ul>
+    <ul class="auth">
+        <form action="@Url.Action("", "Register")" method="get">
+            <button type="submit">Register</button>
+        </form>
+    </ul>
+</div>
+
+</body>
+
+</html>

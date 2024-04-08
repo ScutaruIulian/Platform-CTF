@@ -16,9 +16,9 @@ namespace PlatformCTF.Controllers
 
         // Aquire registration
         public ActionResult Index()
-        {
-            //return View();
-            return null;
+        { 
+            return View($"~/Views/Home/Register.cshtml");
+            
         }
 
         [HttpPost]
@@ -38,7 +38,7 @@ namespace PlatformCTF.Controllers
                 if (userRegister != null && userRegister.Status)
                 {
                     //ADD COOKIE
-                    return RedirectToAction("Home");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
@@ -47,8 +47,12 @@ namespace PlatformCTF.Controllers
                 }
             }
 
-            //return View();
-            return null;
+            return View($"~/Views/Home/Register.cshtml");
+        }
+
+        public ActionResult Register()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

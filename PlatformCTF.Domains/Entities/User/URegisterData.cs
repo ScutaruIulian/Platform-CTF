@@ -12,6 +12,7 @@ namespace PlatformCTF.Domains.Entities.User
 {
     public class URegisterData
     {
+        public DateTime RegisterDateTime { get; set; }
         public string Username { get; set; }
         public string Email { get; set; }
 
@@ -24,7 +25,7 @@ namespace PlatformCTF.Domains.Entities.User
         [DisplayName("Confirm Password")]
         public string ConfirmPassword { get; set;}
 
-        public DateTime RegisterDateTime { get; set; }
+        
         public URole Level { get; set; }
     }
 }
