@@ -1,0 +1,82 @@
+Index: Platform-CTF/Controllers/RegisterController.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using System.Web.Mvc;\r\nusing PlatformCTF.BusinessLogic.Interfaces;\r\nusing PlatformCTF.Domains.Entities.User;\r\n\r\nnamespace PlatformCTF.Controllers\r\n{\r\n    public class RegisterController : Controller\r\n    {\r\n        private readonly ISession _session;\r\n\r\n        public RegisterController()\r\n        {\r\n            var bl = new BusinessLogic.BusinessLogic();\r\n            _session = bl.GetSessionBL();\r\n        }\r\n\r\n        // Aquire registration\r\n        public ActionResult Index()\r\n        { \r\n            return View($\"~/Views/Home/Register.cshtml\");\r\n            \r\n        }\r\n\r\n        [HttpPost]\r\n        [ValidateAntiForgeryToken]\r\n        public ActionResult Index(URegisterData register)\r\n        {\r\n            if (ModelState.IsValid)\r\n            {\r\n                URegisterData data = new URegisterData\r\n                {\r\n                    Username = register.Username,\r\n                    Password = register.Password,\r\n                    Email = register.Email\r\n                };\r\n\r\n                var userRegister = _session.UserRegister(data);\r\n                if (userRegister != null && userRegister.Status)\r\n                {\r\n                    //ADD COOKIE\r\n                    return RedirectToAction(\"Index\", \"Home\");\r\n                }\r\n                else\r\n                {\r\n                    ModelState.AddModelError(\"\", userRegister.StatusMsg);\r\n                    //return View();\r\n                }\r\n            }\r\n\r\n            return View($\"~/Views/Home/Register.cshtml\");\r\n        }\r\n\r\n        public ActionResult Register()\r\n        {\r\n            throw new System.NotImplementedException();\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Platform-CTF/Controllers/RegisterController.cs b/Platform-CTF/Controllers/RegisterController.cs
+--- a/Platform-CTF/Controllers/RegisterController.cs	(revision d494df54d6a8b146bffff8e83a80268d28e305fb)
++++ b/Platform-CTF/Controllers/RegisterController.cs	(date 1712617228879)
+@@ -43,7 +43,7 @@
+                 else
+                 {
+                     ModelState.AddModelError("", userRegister.StatusMsg);
+-                    //return View();
++                    //return View($"~");
+                 }
+             }
+ 
+Index: .idea/.idea.Platform-CTF/.idea/dataSources.local.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"dataSourceStorageLocal\" created-in=\"RD-233.14475.66\">\r\n    <data-source name=\"Microsoft SQL Server (JetBrains)\" uuid=\"a0741bb8-7507-4173-81ae-35b307cc2618\">\r\n      <database-info product=\"Microsoft SQL Server\" version=\"16.00.1000\" jdbc-version=\"4.2\" driver-name=\"JetBrains JDBC Driver for SQL Server\" driver-version=\"1.0\" dbms=\"MSSQL\" exact-version=\"16.0.1000\" exact-driver-version=\"1.0\">\r\n        <extra-name-characters>$#@</extra-name-characters>\r\n        <identifier-quote-string>&quot;</identifier-quote-string>\r\n      </database-info>\r\n      <case-sensitivity plain-identifiers=\"mixed\" quoted-identifiers=\"mixed\" />\r\n      <secret-storage>master_key</secret-storage>\r\n      <auth-provider>no-auth</auth-provider>\r\n      <schema-mapping>\r\n        <introspection-scope>\r\n          <node kind=\"database\" qname=\"@\">\r\n            <node kind=\"schema\" qname=\"@\" />\r\n          </node>\r\n        </introspection-scope>\r\n      </schema-mapping>\r\n    </data-source>\r\n    <data-source name=\"Microsoft SQL Server LocalDB (JetBrains)\" uuid=\"c39d52bb-2b92-4b0d-ba66-3bd181062e1e\">\r\n      <database-info product=\"Microsoft SQL Server\" version=\"16.00.1110\" jdbc-version=\"4.2\" driver-name=\"JetBrains JDBC Driver for SQL Server\" driver-version=\"1.0\" dbms=\"MSSQL\" exact-version=\"16.0.1110\" exact-driver-version=\"1.0\">\r\n        <extra-name-characters>$#@</extra-name-characters>\r\n        <identifier-quote-string>&quot;</identifier-quote-string>\r\n      </database-info>\r\n      <case-sensitivity plain-identifiers=\"mixed\" quoted-identifiers=\"mixed\" />\r\n      <secret-storage>master_key</secret-storage>\r\n      <auth-provider>no-auth</auth-provider>\r\n      <schema-mapping>\r\n        <introspection-scope>\r\n          <node kind=\"database\" qname=\"@\">\r\n            <node kind=\"schema\" qname=\"@\" />\r\n          </node>\r\n        </introspection-scope>\r\n      </schema-mapping>\r\n    </data-source>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.idea.Platform-CTF/.idea/dataSources.local.xml b/.idea/.idea.Platform-CTF/.idea/dataSources.local.xml
+--- a/.idea/.idea.Platform-CTF/.idea/dataSources.local.xml	(revision d494df54d6a8b146bffff8e83a80268d28e305fb)
++++ b/.idea/.idea.Platform-CTF/.idea/dataSources.local.xml	(date 1712617570727)
+@@ -1,22 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="dataSourceStorageLocal" created-in="RD-233.14475.66">
+-    <data-source name="Microsoft SQL Server (JetBrains)" uuid="a0741bb8-7507-4173-81ae-35b307cc2618">
+-      <database-info product="Microsoft SQL Server" version="16.00.1000" jdbc-version="4.2" driver-name="JetBrains JDBC Driver for SQL Server" driver-version="1.0" dbms="MSSQL" exact-version="16.0.1000" exact-driver-version="1.0">
+-        <extra-name-characters>$#@</extra-name-characters>
+-        <identifier-quote-string>&quot;</identifier-quote-string>
+-      </database-info>
+-      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+-      <secret-storage>master_key</secret-storage>
+-      <auth-provider>no-auth</auth-provider>
+-      <schema-mapping>
+-        <introspection-scope>
+-          <node kind="database" qname="@">
+-            <node kind="schema" qname="@" />
+-          </node>
+-        </introspection-scope>
+-      </schema-mapping>
+-    </data-source>
+     <data-source name="Microsoft SQL Server LocalDB (JetBrains)" uuid="c39d52bb-2b92-4b0d-ba66-3bd181062e1e">
+       <database-info product="Microsoft SQL Server" version="16.00.1110" jdbc-version="4.2" driver-name="JetBrains JDBC Driver for SQL Server" driver-version="1.0" dbms="MSSQL" exact-version="16.0.1110" exact-driver-version="1.0">
+         <extra-name-characters>$#@</extra-name-characters>
+Index: .idea/.idea.Platform-CTF/.idea/dataSources.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DataSourceManagerImpl\" format=\"xml\" multifile-model=\"true\">\r\n    <data-source source=\"LOCAL\" name=\"Microsoft SQL Server (JetBrains)\" uuid=\"a0741bb8-7507-4173-81ae-35b307cc2618\">\r\n      <driver-ref>sqlserver.jb</driver-ref>\r\n      <synchronize>true</synchronize>\r\n      <configured-by-url>true</configured-by-url>\r\n      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>\r\n      <jdbc-url>Data Source=DESKTOP-N0GGVVL\\SQLEXPRESS;\r\n\t\t\t Initial Catalog=ULogin;\r\n\t\t\t Integrated Security=True;\r\n\t\t\t MultipleActiveResultSets=True;\r\n\t\t\t TrustServerCertificate=True;\r\n\t\t\t App=EntityFramework</jdbc-url>\r\n      <working-dir>$ProjectFileDir$</working-dir>\r\n    </data-source>\r\n    <data-source source=\"LOCAL\" name=\"Microsoft SQL Server LocalDB (JetBrains)\" uuid=\"c39d52bb-2b92-4b0d-ba66-3bd181062e1e\">\r\n      <driver-ref>sqlserver.localdb.jb</driver-ref>\r\n      <synchronize>true</synchronize>\r\n      <configured-by-url>true</configured-by-url>\r\n      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>\r\n      <jdbc-url>Data Source=NOTYOURLAPTOP\\SQLEXPRESS;     Initial Catalog=ULogin;     Integrated Security=True;     MultipleActiveResultSets=True;     TrustServerCertificate=True;     App=EntityFramework</jdbc-url>\r\n      <working-dir>$ProjectFileDir$</working-dir>\r\n    </data-source>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.idea.Platform-CTF/.idea/dataSources.xml b/.idea/.idea.Platform-CTF/.idea/dataSources.xml
+--- a/.idea/.idea.Platform-CTF/.idea/dataSources.xml	(revision d494df54d6a8b146bffff8e83a80268d28e305fb)
++++ b/.idea/.idea.Platform-CTF/.idea/dataSources.xml	(date 1712617108188)
+@@ -1,19 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+-    <data-source source="LOCAL" name="Microsoft SQL Server (JetBrains)" uuid="a0741bb8-7507-4173-81ae-35b307cc2618">
+-      <driver-ref>sqlserver.jb</driver-ref>
+-      <synchronize>true</synchronize>
+-      <configured-by-url>true</configured-by-url>
+-      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+-      <jdbc-url>Data Source=DESKTOP-N0GGVVL\SQLEXPRESS;
+-			 Initial Catalog=ULogin;
+-			 Integrated Security=True;
+-			 MultipleActiveResultSets=True;
+-			 TrustServerCertificate=True;
+-			 App=EntityFramework</jdbc-url>
+-      <working-dir>$ProjectFileDir$</working-dir>
+-    </data-source>
+     <data-source source="LOCAL" name="Microsoft SQL Server LocalDB (JetBrains)" uuid="c39d52bb-2b92-4b0d-ba66-3bd181062e1e">
+       <driver-ref>sqlserver.localdb.jb</driver-ref>
+       <synchronize>true</synchronize>

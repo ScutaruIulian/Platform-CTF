@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Microsoft SQL Server (JetBrains)" uuid="a0741bb8-7507-4173-81ae-35b307cc2618">
-      <driver-ref>sqlserver.jb</driver-ref>
-      <synchronize>true</synchronize>
-      <configured-by-url>true</configured-by-url>
-      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
-      <jdbc-url>Data Source=DESKTOP-N0GGVVL\SQLEXPRESS;
-			 Initial Catalog=ULogin;
-			 Integrated Security=True;
-			 MultipleActiveResultSets=True;
-			 TrustServerCertificate=True;
-			 App=EntityFramework</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
     <data-source source="LOCAL" name="Microsoft SQL Server LocalDB (JetBrains)" uuid="c39d52bb-2b92-4b0d-ba66-3bd181062e1e">
       <driver-ref>sqlserver.localdb.jb</driver-ref>
       <synchronize>true</synchronize>

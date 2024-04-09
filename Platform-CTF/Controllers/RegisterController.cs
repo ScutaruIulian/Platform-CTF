@@ -43,7 +43,7 @@ namespace PlatformCTF.Controllers
                 else
                 {
                     ModelState.AddModelError("", userRegister.StatusMsg);
-                    //return View();
+                    //return View($"~");
                 }
             }
 
