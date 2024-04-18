@@ -158,15 +158,18 @@ namespace BusinessLogic.Core
             {
                 return new ULoginResp { Status = false, StatusMsg = "User already exists" };
             }
+            
+            string hashedPassword = LoginHelper.HashGen(data.Password);
 
             // Create a new user
             user = new UDBTable
             {
                 Username = data.Username,
-                Password = data.Password,
+                Password = hashedPassword,
                 Email = data.Email,
                 Level = URole.User,
-                LastLogin = data.RegisterDateTime
+                LasIp = "127.0.0.1",
+                LastLogin = DateTime.Now
             };
 
             // Save the new user to the database

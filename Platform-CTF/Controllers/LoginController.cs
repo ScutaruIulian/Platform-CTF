@@ -59,5 +59,17 @@ namespace PlatformCTF.Web.Controllers
         {
             throw new NotImplementedException();
         }
+
+        public ActionResult LogOut()
+        {
+            var cookie = Request.Cookies["X-KEY"];
+            if (cookie != null)
+            {
+                cookie.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(cookie);
+            }
+
+            return View($"~/Views/Home/Login.cshtml");
+        }
     }
 }
