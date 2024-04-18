@@ -24,7 +24,13 @@ namespace PlatformCTF.Domains.Entities.User
 
         [DisplayName("Confirm Password")]
         public string ConfirmPassword { get; set;}
-
+        
+        public static string GetPublicIpAddress()
+        {
+            var client = new System.Net.WebClient();
+            string publicIp = client.DownloadString("https://api.ipify.org");
+            return publicIp;
+        }
         
         public URole Level { get; set; }
     }

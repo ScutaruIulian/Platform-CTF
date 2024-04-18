@@ -10,9 +10,9 @@ namespace PlatformCTF.Domains.Entities.User
         
         public string Credentials { get; set; }
         public string Password { get; set; }
-        public string LoginIp { get; set; }
+        public string LastIp { get; set; }
         //specifie the data type of column in database
-        [Column(TypeName = "datetime")]
+        [Column(TypeName = "datetime2")]
         public DateTime LoginDateTime { get; set; }
         
         

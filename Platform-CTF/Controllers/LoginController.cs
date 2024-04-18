@@ -34,7 +34,7 @@ namespace PlatformCTF.Web.Controllers
                 var mapper = config.CreateMapper();
                 var data = mapper.Map<ULoginData>(login);
 
-                data.LoginIp = Request.UserHostAddress;
+                data.LastIp = Request.UserHostAddress;
                 data.LoginDateTime = DateTime.Now;
 
                 var userLogin = _session.UserLogin(data);
@@ -58,6 +58,18 @@ namespace PlatformCTF.Web.Controllers
         public ActionResult Login()
         {
             throw new NotImplementedException();
+        }
+
+        public ActionResult LogOut()
+        {
+            var cookie = Request.Cookies["X-KEY"];
+            if (cookie != null)
+            {
+                cookie.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(cookie);
+            }
+
+            return View($"~/Views/Home/Login.cshtml");
         }
     }
 }
