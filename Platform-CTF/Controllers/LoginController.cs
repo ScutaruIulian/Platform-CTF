@@ -4,7 +4,9 @@ using System.Web.Mvc;
 using AutoMapper;
 using PlatformCTF.Domains.Entities.User;
 using Platform_CTF.Models;
+using PlatformCTF.Atributes;
 using PlatformCTF.BusinessLogic.Interfaces;
+using PlatformCTF.Domain.Entities.User;
 
 namespace PlatformCTF.Web.Controllers
 {
@@ -59,7 +61,10 @@ namespace PlatformCTF.Web.Controllers
         {
             throw new NotImplementedException();
         }
-
+        public UserMinimal GetUserDetails(string authToken)
+        {
+            return _session.GetUserByCookie(authToken);
+        }
         public ActionResult LogOut()
         {
             var cookie = Request.Cookies["X-KEY"];
