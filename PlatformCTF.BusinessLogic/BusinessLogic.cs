@@ -9,5 +9,9 @@ namespace PlatformCTF.BusinessLogic
         {
             return new SessionBl();
         }
+        public ISessionAdmin GetSessionAdminBL()
+        {
+            return new AdminSessionBl();
+        }
     }
 }

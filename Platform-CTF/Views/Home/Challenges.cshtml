@@ -1,0 +1,27 @@
+@*@model List<Platform_CTF.Models.Challenge>
+
+<h1>Challenges</h1>
+
+@foreach (var exercise in Model)
+{
+<div class="challenge">
+    <h2>@exercise.Name</h2>
+    <p>@exercise.Description</p>
+    <p><strong>Category:</strong> @exercise.Category</p>
+
+    @using (Html.BeginForm("ValidateFlag", "Challenge", FormMethod.Post))
+    {
+    @Html.AntiForgeryToken()
+    @Html.Hidden("Challenge", exercise)
+
+    <div class="form-group">
+        @Html.Label("Flag")
+        @Html.TextBox("Flag", null, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Validate" class="btn btn-default" />
+    </div>
+    }
+</div>
+}*@
