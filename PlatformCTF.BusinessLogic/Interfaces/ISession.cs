@@ -10,6 +10,11 @@ namespace PlatformCTF.BusinessLogic.Interfaces
         HttpCookie GenCookie(string loginCredential);
         UserMinimal GetUserByCookie(string apiCookieValue);
         ULoginResp UserRegister(URegisterData uregisterData);
+        object GetAllUsers();
+        object GetUserById(int id);
+        void BanUser(int id);
+        object GetAllSessions();
+        void DeleteSession(int id);
     }
 
 }

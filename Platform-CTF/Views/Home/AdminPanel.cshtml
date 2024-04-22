@@ -1,0 +1,37 @@
+@{
+ViewBag.Title = "AdminPanel";
+}
+
+@model IEnumerable<PlatformCTF.Domain.Entities.User.UserMinimal>
+
+<h2>All Users</h2>
+
+@if (Model.Any())
+{
+<table class="admin-table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var user in Model)
+    {
+    <tr>
+        <td>@user.Id</td>
+        <td>@user.Username</td>
+        <td>
+            <a class="action-link" href="@Url.Action("ViewUser", "Admin", new { id = user.Id })">View</a> |
+            <a class="action-link" href="@Url.Action("DeleteUser", "Admin", new { id = user.Id })">Delete</a>
+        </td>
+    </tr>
+    }
+    </tbody>
+</table>
+}
+else
+{
+<p>No users found.</p>
+}

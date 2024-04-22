@@ -45,22 +45,22 @@ namespace PlatformCTF.Web.Controllers
                     HttpCookie cookie = _session.GenCookie(login.Credentials);
                     ControllerContext.HttpContext.Response.Cookies.Add(cookie);
 
-                    return RedirectToAction("Index", "Home");
+                    // Set the X-KEY cookie
+                    HttpCookie xKeyCookie = new HttpCookie("X-KEY", cookie.Value);
+                    ControllerContext.HttpContext.Response.Cookies.Add(xKeyCookie);
+
+                    return RedirectToAction("Index", "LogedUserHome");
                 }
                 else
                 {
                     ModelState.AddModelError("", userLogin.StatusMsg);
-                    return View($"~/Views/Home/index.cshtml");
+                    return View($"~/Views/Home/Login.cshtml");
                 }
             }
 
             return View($"~/Views/Home/LogedHome.cshtml");
         }
-
-        public ActionResult Login()
-        {
-            throw new NotImplementedException();
-        }
+        
         public UserMinimal GetUserDetails(string authToken)
         {
             return _session.GetUserByCookie(authToken);

@@ -8,11 +8,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd6a4659-cace-4f31-9ac9-33ccc3d53f21" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Platform-CTF/.idea/dataSources/005214e7-eb74-4d66-8ab6-4b50e1691bf9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Platform-CTF/.idea/dataSources/005214e7-eb74-4d66-8ab6-4b50e1691bf9.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/config/applicationhost.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Platform-CTF/Controllers/AdminController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Platform-CTF/Models/UserRegister.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Platform-CTF/Views/Home/AdminPanel.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Platform-CTF/Views/Home/Challenges.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Platform-CTF/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Platform-CTF/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Platform-CTF/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Platform-CTF/.idea/dataSources/005214e7-eb74-4d66-8ab6-4b50e1691bf9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Platform-CTF/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Platform-CTF/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform-CTF/Controllers/LoginController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Controllers/LoginController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform-CTF/Controllers/RegisterController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Controllers/RegisterController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform-CTF/Platform-CTF.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Platform-CTF.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform-CTF/Views/Home/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Views/Home/Login.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform-CTF/Views/Home/Register.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Views/Home/Register.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Platform-CTF/Web.config" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Web.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Core/AdminAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Core/AdminAPI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Core/UserAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Core/UserAPI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/URegisterData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/URegisterData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/DBModel/Seed/SessionContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/DBModel/Seed/SessionContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/DBModel/Seed/UserContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/DBModel/Seed/UserContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Interfaces/ISession.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Interfaces/ISession.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/SessionBl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/SessionBl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/Session.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/Session.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlatformCTF.Helpers/LoginHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.Helpers/LoginHelper.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,12 +45,17 @@
     &quot;assignee&quot;: &quot;ScutaruIulian&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/ScutaruIulian/Platform-CTF.git",
-    "accountId": "1f8ce208-5936-489a-a389-9f52c107e504"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ScutaruIulian/Platform-CTF.git&quot;,
+    &quot;accountId&quot;: &quot;1f8ce208-5936-489a-a389-9f52c107e504&quot;
   }
-}]]></component>
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cf66837a802945f28fa86120ded75aed529220/17/7f44529c/HttpResponse.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e4e9310d6e504b9195be7c4cd0c0cfcd574c30/5c/2cd12eae/String.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ee77da9be5eb48fd87455ccd8aeaccec110a58/d9/b1eb364e/DbSet`1.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -47,34 +69,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Project.Platform-CTF - IIS Express.executor": "Run",
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Project.Platform-CTF - IIS Express.executor&quot;: &quot;Debug&quot;,
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;RiderNuGetOptionsPageId&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlserver.localdb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlserver.localdb&quot;
     ],
-    "rider.external.source.directories": [
-      "C:\\Users\\user\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\user\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\user\\AppData\\Local\\Symbols\\src"
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\user\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\user\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\user\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Platform-CTF - IIS Express" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -115,7 +137,20 @@
       <workItem from="1713471474647" duration="792000" />
       <workItem from="1713617347287" duration="711000" />
       <workItem from="1713728812609" duration="293000" />
+      <workItem from="1713775172484" duration="2765000" />
+      <workItem from="1713777985184" duration="8279000" />
+      <workItem from="1713788188213" duration="5044000" />
+      <workItem from="1713793277383" duration="2858000" />
     </task>
+    <task id="LOCAL-00001" summary="some fixes">
+      <option name="closed" value="true" />
+      <created>1713775209211</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713775209211</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,6 +172,15 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Merge pull request #2 from ScutaruIulian/add-admin-restriction&#10;&#10;Add admin only restriction for functions/classes" />
+    <MESSAGE value="some fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="some fixes" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="DotNetProject">
+        <watch expression="db._internalContext" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

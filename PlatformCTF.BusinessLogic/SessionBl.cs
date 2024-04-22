@@ -1,8 +1,8 @@
-﻿using BusinessLogic.Core;
-using PlatformCTF.BusinessLogic.Interfaces;
+﻿using PlatformCTF.BusinessLogic.Interfaces;
 using PlatformCTF.Domains.Entities.User;
 using System;
 using System.Web;
+using PlatformCTF.BusinessLogic.Core;
 using PlatformCTF.Domain.Entities.User;
 
 
@@ -28,6 +28,31 @@ namespace PlatformCTF.BusinessLogic
         public ULoginResp UserRegister(URegisterData uRegisterData)
         {
             return UserRegisterAction(uRegisterData);
+        }
+
+        public object GetAllUsers()
+        {
+            throw new NotImplementedException();
+        }
+
+        public object GetUserById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void BanUser(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object GetAllSessions()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteSession(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
