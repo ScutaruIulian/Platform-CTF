@@ -168,7 +168,7 @@ namespace BusinessLogic.Core
                 Password = hashedPassword,
                 Email = data.Email,
                 Level = URole.User,
-                LasIp = "127.0.0.1",
+                LasIp = URegisterData.GetPublicIpAddress(),
                 LastLogin = DateTime.Now
             };
 

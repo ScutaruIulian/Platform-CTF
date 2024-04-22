@@ -6,7 +6,12 @@
       <synchronize>true</synchronize>
       <configured-by-url>true</configured-by-url>
       <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
-      <jdbc-url>Data Source=NOTYOURLAPTOP\SQLEXPRESS;     Initial Catalog=ULogin;     Integrated Security=True;     MultipleActiveResultSets=True;     TrustServerCertificate=True;     App=EntityFramework</jdbc-url>
+      <jdbc-url>Data Source=DESKTOP-N0GGVVL\SQLEXPRESS;     Initial Catalog=ULogin;     Integrated Security=True;     MultipleActiveResultSets=True;     TrustServerCertificate=True;     App=EntityFramework</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

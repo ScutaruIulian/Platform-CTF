@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="RD-233.14475.66">
+  <component name="dataSourceStorageLocal" created-in="RD-241.14494.325">
     <data-source name="Microsoft SQL Server (JetBrains)" uuid="005214e7-eb74-4d66-8ab6-4b50e1691bf9">
-      <database-info product="Microsoft SQL Server" version="16.00.1115" jdbc-version="4.2" driver-name="JetBrains JDBC Driver for SQL Server" driver-version="1.0" dbms="MSSQL" exact-version="16.0.1115" exact-driver-version="1.0">
+      <database-info product="Microsoft SQL Server" version="16.00.1000" jdbc-version="4.2" driver-name="JetBrains JDBC Driver for SQL Server" driver-version="1.0" dbms="MSSQL" exact-version="16.0.1000" exact-driver-version="1.0">
         <extra-name-characters>$#@</extra-name-characters>
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
