@@ -1,34 +1,48 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Login";
 }
+@model Platform_CTF.Models.UserLogin
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width"/>
     <title>Login</title>
-    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet"/>
 </head>
 <body>
-    <div class="login">
-        <h2>Login</h2>
-        <form method="post" action="/Login">
-            <div class="form-group">
-                <label>Username</label>
-                <input type="text" name="username" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" />
-            </div>
-           @using (Html.BeginForm("Login", "Login", FormMethod.Post))
-                   {
-                       @Html.AntiForgeryToken()
-                       <!-- Other form elements -->
-                       
-                       <button type="submit" class="btn btn-primary">Login</button>
-                   }
-        </form>
-    </div>
+<div class="login">
+    <h2>Login</h2>
+    @if ((ViewBag.UsernameDoesntMatch ?? false) || (ViewBag.EmailDoesntMatch ?? false) || (ViewBag.PasswordDoesntMatch ?? false))   
+    {
+        <div class="alert alert-danger">
+            @ViewBag.StatusMsg
+            @if (ViewBag.UsernameDoesntMatch ?? false)
+            {
+                <p>Username doesn't match.</p>
+            }
+            @if (ViewBag.EmailDoesntMatch ?? false)
+            {
+                <p>Email doesn't match.</p>
+            }
+            @if (ViewBag.PasswordDoesntMatch ?? false)
+            {
+                <p>Password doesn't match.</p>
+            }
+        </div>
+    }
+    @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <label>Credentials</label>
+            @Html.TextBoxFor(model => model.Credentials, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", name = "password", type = "password" })
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    }
+</div>
 </body>
 </html>

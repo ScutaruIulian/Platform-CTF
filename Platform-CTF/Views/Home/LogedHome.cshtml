@@ -1,3 +1,4 @@
+@using PlatformCTF.Domains.Enums
 @{
     ViewBag.Title = "LogedHome";
 }
@@ -9,5 +10,10 @@
     <p>Here you can see all the available challenges and your progress.</p>
     <p>Good luck!</p>
 </div>
-
+@{
+    if (ViewBag.UserRole == URole.Admin)
+    {
+        <a href="@Url.Action("Index", "Admin")" class="btn btn-primary">Admin Panel</a>
+    }
+}
 @Html.ActionLink("Logout", "Logout", "Login")
