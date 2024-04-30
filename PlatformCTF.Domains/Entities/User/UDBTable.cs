@@ -33,8 +33,5 @@ namespace PlatformCTF.Domains.Entities.User
         [StringLength(30)]
         public string LasIp { get; set; }
         public URole Level { get; set; }
-        
-        public DateTime? BanEndTime { get; set; }
-        public bool IsBanned { get; set; }
     }
 }

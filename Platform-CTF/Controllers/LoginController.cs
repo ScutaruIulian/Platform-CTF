@@ -3,7 +3,8 @@ using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using PlatformCTF.Domains.Entities.User;
-using Platform_CTF.Models; 
+using Platform_CTF.Models;
+using PlatformCTF.Atributes;
 using PlatformCTF.BusinessLogic.Interfaces;
 using PlatformCTF.Domain.Entities.User;
 
@@ -44,22 +45,22 @@ namespace PlatformCTF.Web.Controllers
                     HttpCookie cookie = _session.GenCookie(login.Credentials);
                     ControllerContext.HttpContext.Response.Cookies.Add(cookie);
 
-                    // Set the X-KEY cookie
-                    HttpCookie xKeyCookie = new HttpCookie("X-KEY", cookie.Value);
-                    ControllerContext.HttpContext.Response.Cookies.Add(xKeyCookie);
-
-                    return RedirectToAction("Index", "LogedUserHome");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
                     ModelState.AddModelError("", userLogin.StatusMsg);
-                    return View($"~/Views/Home/Login.cshtml");
+                    return View($"~/Views/Home/index.cshtml");
                 }
             }
 
             return View($"~/Views/Home/LogedHome.cshtml");
         }
-        
+
+        public ActionResult Login()
+        {
+            throw new NotImplementedException();
+        }
         public UserMinimal GetUserDetails(string authToken)
         {
             return _session.GetUserByCookie(authToken);

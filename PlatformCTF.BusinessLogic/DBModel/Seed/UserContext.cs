@@ -1,16 +1,14 @@
-﻿using System.Data.Entity;
-using PlatformCTF.Domains.Entities.User;
+﻿using PlatformCTF.Domains.Entities.User;
+using System.Data.Entity;
 
-namespace PlatformCTF.BusinessLogic.DBModel.Seed
+namespace PlatformCTF.BusinessLogic.DBModel
 {
     public class UserContext : DbContext
     {
-        public UserContext() : base ("name=ULogin")
-        { 
-            Database.SetInitializer(new CreateDatabaseIfNotExists<UserContext>());
+        public UserContext() : base ("ULogin")
+        {
         }
         public virtual DbSet<UDBTable> Users { get; set; }
-        public virtual DbSet<Session> Sessions { get; set; }
     }
 }
 

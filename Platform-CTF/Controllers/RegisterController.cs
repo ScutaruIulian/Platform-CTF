@@ -23,7 +23,7 @@ namespace PlatformCTF.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(URegisterData register)
+        public ActionResult Index(URegisterData register)
         {
             if (ModelState.IsValid)
             {

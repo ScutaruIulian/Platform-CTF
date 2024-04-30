@@ -1,86 +1,70 @@
 ﻿using System;
+using PlatformCTF.BusinessLogic.DBModel;
+using PlatformCTF.Domains.Entities.User;
+using PlatformCTF.Domains.Enums;
+using System.Linq;
+using AutoMapper;
+using System.Web;
+using PlatformCTF.Helpers;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.Entity;
-using System.Linq;
-using System.Web;
-using AutoMapper;
-using PlatformCTF.BusinessLogic.DBModel.Seed;
 using PlatformCTF.Domain.Entities.User;
-using PlatformCTF.Domains.Entities.User;
-using PlatformCTF.Domains.Enums;
-using PlatformCTF.Helpers;
 
-namespace PlatformCTF.BusinessLogic.Core
+namespace BusinessLogic.Core
 {
     public class UserApi
     {
         internal ULoginResp UserLoginAction(ULoginData data)
         {
-            if (data == null)
-            {
-                return new ULoginResp { Status = false, StatusMsg = "Data is null" };
-            }
-
-            if (!new EmailAddressAttribute().IsValid(data.Credentials) && !new RegularExpressionAttribute(@"^[a-zA-Z0-9]*$").IsValid(data.Credentials))
-            {
-                return new ULoginResp { Status = false, StatusMsg = "Credentials is not a valid email or username" };
-            }
-
-            if (!new RegularExpressionAttribute(@"^[a-zA-Z0-9]*$").IsValid(data.Password))
-            {
-                return new ULoginResp { Status = false, StatusMsg = "Password is not a valid password" };
-            }
             UDBTable user;
             var validate = new EmailAddressAttribute();
-            var hashedPassword = LoginHelper.HashGen(data.Password); 
-            using (var db = new UserContext())
+            if (validate.IsValid(data.Credentials))
             {
-                if (validate.IsValid(data.Credentials))
+                var pass = LoginHelper.HashGen(data.Password);
+                using (var db = new UserContext())
                 {
-                    user = db.Users.FirstOrDefault(u => u.Email == data.Credentials && u.Password == hashedPassword);
+                    user = db.Users.FirstOrDefault(u => u.Email == data.Credentials && u.Password == pass);
                 }
-                else
+
+                if (user == null)
                 {
-                    user = db.Users.FirstOrDefault(u => u.Username == data.Credentials && u.Password == hashedPassword);
+                    return new ULoginResp { Status = false, StatusMsg = "The Username or Password is Incorrect" };
                 }
-            }
 
-            if (user == null)
-            {
-                return new ULoginResp { Status = false, StatusMsg = "The Username or Password is Incorrect" };
-            }
-
-           
-            if (user.IsBanned && user.BanEndTime > DateTime.Now)
-            {
-                return new ULoginResp { Status = false, StatusMsg = "You are banned!!!" };
-            }
-
-            using (var todo = new UserContext())
-            {
-                user.LasIp = data.LoginIp;
-                user.LastLogin = data.LoginDateTime;
-                todo.Entry(user).State = EntityState.Modified;
-                todo.SaveChanges();
-            }
-
-            // Create a new session with a new cookie for the user upon successful login
-            using (var db = new SessionContext())
-            {
-                db.Sessions.Add(new Session
+                using (var todo = new UserContext())
                 {
-                    UserId = user.Id,
-                    CookieString = CookieGenerator.Create(data.Credentials),
-                    ExpireTime = DateTime.Now.AddMinutes(60)
-                });
+                    user.LasIp = data.LoginIp;
+                    user.LastLogin = data.LoginDateTime;
+                    todo.Entry(user).State = EntityState.Modified;
+                    todo.SaveChanges();
+                }
 
-                db.SaveChanges();
-                HttpCookie apiCookie = Cookie(data.Credentials);
-                HttpContext.Current.Response.Cookies.Add(apiCookie);
+                return new ULoginResp { Status = true };
             }
+            else
+            {
+                var pass = LoginHelper.HashGen(data.Password);
+                using (var db = new UserContext())
+                {
+                    user = db.Users.FirstOrDefault(u => u.Username == data.Credentials && u.Password == pass);
+                }
 
-            return new ULoginResp { Status = true };
+                if (user == null)
+                {
+                    return new ULoginResp { Status = false, StatusMsg = "The Username or Password is Incorrect" };
+                }
+
+                using (var todo = new UserContext())
+                {
+                    user.LasIp = data.LoginIp;
+                    user.LastLogin = data.LoginDateTime;
+                    todo.Entry(user).State = EntityState.Modified;
+                    todo.SaveChanges();
+                }
+
+                return new ULoginResp { Status = true };
+            }
         }
 
         internal HttpCookie Cookie(string loginCredential)
@@ -90,37 +74,37 @@ namespace PlatformCTF.BusinessLogic.Core
                 Value = CookieGenerator.Create(loginCredential)
             };
 
-            using (var db = new UserContext())
+            using (var db = new SessionContext())
             {
-                UDBTable currentUser;
+                Session curent;
                 var validate = new EmailAddressAttribute();
                 if (validate.IsValid(loginCredential))
                 {
-                    currentUser = db.Users.FirstOrDefault(u => u.Email == loginCredential);
+                    curent = (from e in db.Sessions where e.Username == loginCredential select e).FirstOrDefault();
                 }
                 else
                 {
-                    currentUser = db.Users.FirstOrDefault(u => u.Username == loginCredential);
+                    curent = (from e in db.Sessions where e.Username == loginCredential select e).FirstOrDefault();
                 }
 
-                if (currentUser != null)
+                if (curent != null)
                 {
-                    var currentSession = db.Sessions.FirstOrDefault(s => s.UserId == currentUser.Id);
-                    if (currentSession != null)
+                    curent.CookieString = apiCookie.Value;
+                    curent.ExpireTime = DateTime.Now.AddMinutes(60);
+                    using (var todo = new SessionContext())
                     {
-                        currentSession.CookieString = apiCookie.Value;
-                        currentSession.ExpireTime = DateTime.Now.AddMinutes(60);
+                        todo.Entry(curent).State = EntityState.Modified;
+                        todo.SaveChanges();
                     }
-                    else
+                }
+                else
+                {
+                    db.Sessions.Add(new Session
                     {
-                        db.Sessions.Add(new Session
-                        {
-                            UserId = currentUser.Id,
-                            CookieString = apiCookie.Value,
-                            ExpireTime = DateTime.Now.AddMinutes(60)
-                        });
-                    }
-
+                        Username = loginCredential,
+                        CookieString = apiCookie.Value,
+                        ExpireTime = DateTime.Now.AddMinutes(60)
+                    });
                     db.SaveChanges();
                 }
             }
@@ -131,27 +115,33 @@ namespace PlatformCTF.BusinessLogic.Core
         internal UserMinimal UserCookie(string cookie)
         {
             Session session;
-            UDBTable currentUser;
+            UDBTable curentUser;
 
-            using (var db = new UserContext())
+            using (var db = new SessionContext())
             {
                 session = db.Sessions.FirstOrDefault(s => s.CookieString == cookie && s.ExpireTime > DateTime.Now);
             }
 
-            if (session == null) return null; // If the session does not exist or is expired, return null
-
+            if (session == null) return null;
             using (var db = new UserContext())
             {
-                currentUser = db.Users.FirstOrDefault(u => u.Id == session.UserId);
+                var validate = new EmailAddressAttribute();
+                if (validate.IsValid(session.Username))
+                {
+                    curentUser = db.Users.FirstOrDefault(u => u.Email == session.Username);
+                }
+                else
+                {
+                    curentUser = db.Users.FirstOrDefault(u => u.Username == session.Username);
+                }
             }
 
-            if (currentUser == null) return null; // If the user does not exist, return null
-
+            if (curentUser == null) return null;
             var config = new MapperConfiguration(cfg => cfg.CreateMap<UDBTable, UserMinimal>());
             var mapper = config.CreateMapper();
-            var userminimal = mapper.Map<UserMinimal>(currentUser);
+            var userminimal = mapper.Map<UserMinimal>(curentUser);
 
-            return userminimal; // Return the UserMinimal object if the cookie is valid
+            return userminimal;
         }
 
         internal ULoginResp UserRegisterAction(URegisterData data)
@@ -168,7 +158,7 @@ namespace PlatformCTF.BusinessLogic.Core
             {
                 return new ULoginResp { Status = false, StatusMsg = "User already exists" };
             }
-
+            
             string hashedPassword = LoginHelper.HashGen(data.Password);
 
             // Create a new user
@@ -194,4 +184,6 @@ namespace PlatformCTF.BusinessLogic.Core
             return new ULoginResp { Status = true, StatusMsg = "User registered successfully" };
         }
     }
-}
+
+}  
+    

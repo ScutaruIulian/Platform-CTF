@@ -1,14 +1,14 @@
 using System.Data.Entity;
 using PlatformCTF.Domains.Entities.User;
 
-namespace PlatformCTF.BusinessLogic.DBModel.Seed
+namespace PlatformCTF.BusinessLogic.DBModel
 {
     public class SessionContext : DbContext
     {
-        public SessionContext() : base("name=ULogin")
+        public SessionContext() : base("name=CCToolShop")
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<SessionContext>());
         }
+
         public virtual DbSet<Session> Sessions { get; set; }
     }
 }

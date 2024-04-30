@@ -1,4 +1,7 @@
-﻿using System;
+﻿
+
+using PlatformCTF.Domains.Enums;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,18 +11,16 @@ namespace PlatformCTF.Domains.Entities.User
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int SessionId { get; set; }
 
         [Required]
-        [ForeignKey("Users")]
-        public int UserId { get; set; }
+        [StringLength(30)]
+        public string Username { get; set; }
 
         [Required]
         public string CookieString { get; set; }
 
         [Required]
         public DateTime ExpireTime { get; set; }
-
-        public virtual UDBTable Users { get; set; }
     }
 }
