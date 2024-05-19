@@ -1,82 +1,103 @@
 @{
-ViewBag.Title = "Admin Panel";
+    ViewBag.Title = "Admin Panel";
 }
 
-@model Tuple<List<PlatformCTF.Domains.Entities.User.UDBTable>, Platform_CTF.Models.ExerciseAdd>
+@model Tuple<List<PlatformCTF.Domains.Entities.User.UDBTable>, PlatformCTF.Domains.Entities.User.Exercise>
 
 <h1>Admin Panel</h1>
 
 <h2>All Users</h2>
 
-@if (Model.Item1 != null && Model.Item1.Any())
+@if (Model != null && Model.Item1.Any())
 {
-<table class="table">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var user in Model.Item1)
-    {
-    <tr>
-        <td>@user.Id</td>
-        <td>@user.Username</td>
-        <td>
-            <a href="@Url.Action("BanUser", "Admin", new { id = user.Id })">Ban</a>
-        </td>
-    </tr>
-    }
-    </tbody>
-</table>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var user in Model.Item1)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Username</td>
+                <td>
+                    <a href="@Url.Action("BanUser", "Admin", new { id = user.Id })">Ban</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
 }
 else
 {
-<p>No users found.</p>
+    <p>No users found.</p>
 }
+<div class="add-exercise-container">
+    <h2>Add Exercise</h2>
+    @using (Html.BeginForm("AddExercise", "Admin", FormMethod.Post, new { id = "addExerciseForm" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <label for="Name">Name</label>
+            <input type="text" id="Name" name="Name" required/>
+        </div>
 
-<h2>Add Exercise</h2>
+        <div class="form-group">
+            <label for="Description">Description</label>
+            <input type="text" id="Description" name="Description" required/>
+        </div>
 
-@using (Html.BeginForm("AddExercise", "Challenge", FormMethod.Post))
-{
-@Html.AntiForgeryToken()
+        <div class="form-group">
+            <label for="DownloadLink">Download Link</label>
+            <input type="text" id="DownloadLink" name="DownloadLink" required/>
+            </div>
 
-<div class="form-group">
-    @Html.LabelFor(model => model.Item2.Name)
-    @Html.EditorFor(model => model.Item2.Name, new { htmlAttributes = new { @class = "form-control" } })
-    @Html.ValidationMessageFor(model => model.Item2.Name, "", new { @class = "text-danger" })
-</div>
+        <div class="form-group">
+            <label for="Level">Level</label>
+            <input type="text" id="Level" name="Level" required/>
+            </div>
 
-<div class="form-group">
-    @Html.LabelFor(model => model.Item2.Description)
-    @Html.EditorFor(model => model.Item2.Description, new { htmlAttributes = new { @class = "form-control" } })
-    @Html.ValidationMessageFor(model => model.Item2.Description, "", new { @class = "text-danger" })
-</div>
+        <div class="form-group">
+            <label for="Category">Category</label>
+            <input type="text" id="Category" name="Category" required/>
+            </div>
 
-<div class="form-group">
-    @Html.LabelFor(model => model.Item2.DownloadLink)
-    @Html.EditorFor(model => model.Item2.DownloadLink, new { htmlAttributes = new { @class = "form-control" } })
-    @Html.ValidationMessageFor(model => model.Item2.DownloadLink, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label for="Flag">Flag</label>
+            <input type="text" id="Flag" name="Flag" required/>
+        </div>
+        
+        <div class="form-group">
+            <label for="Points">Points</label>
+            <input type="text" id="Points" name="Points" required/>
+        </div>
+        <button type="submit" class="btn btn-primary" id="addExerciseButton">Add</button>
+    }
 </div>
-<div class="form-group">
-    @Html.LabelFor(model => model.Item2.Level)
-    @Html.EditorFor(model => model.Item2.Level, new { htmlAttributes = new { @class = "form-control" } })
-    @Html.ValidationMessageFor(model => model.Item2.Level, "", new { @class = "text-danger" })
-</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#addExerciseForm').on('submit', function(e) {
+            e.preventDefault();
 
-<div class="form-group">
-    @Html.LabelFor(model => model.Item2.Category)
-    @Html.EditorFor(model => model.Item2.Category, new { htmlAttributes = new { @class = "form-control" } })
-    @Html.ValidationMessageFor(model => model.Item2.Category, "", new { @class = "text-danger" })
-</div>
-<div class="form-group">
-    @Html.LabelFor(model => model.Item2.Flag)
-    @Html.EditorFor(model => model.Item2.Flag, new { htmlAttributes = new { @class = "form-control" } })
-    @Html.ValidationMessageFor(model => model.Item2.Flag, "", new { @class = "text-danger" })
-</div>
-<div class="form-group">
-    <input type="submit" value="Add" class="btn btn-default" />
-</div>
-}
+            $.ajax({
+                url: '@Url.Action("AddExercise", "Admin")',
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function(result) {
+                    // Handle success - show a message, clear the form, etc.
+                    alert('Exercise added successfully');
+                    $('#addExerciseForm')[0].reset();
+                },
+                error: function(xhr, status, error) {
+                    // Handle error - show an error message, etc.
+                    alert('Error: ' + error);
+                }
+            });
+        });
+    });
+</script>

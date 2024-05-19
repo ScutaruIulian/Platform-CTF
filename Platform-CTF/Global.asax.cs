@@ -3,7 +3,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using PlatformCTF.BusinessLogic.DBModel;
 using PlatformCTF.BusinessLogic.DBModel.Seed;
 
 namespace Platform_CTF
@@ -16,6 +15,7 @@ namespace Platform_CTF
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
+        
         protected void Application_BeginRequest()
         {
             var cookie = Request.Cookies["X-KEY"];

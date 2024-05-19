@@ -24,16 +24,15 @@ namespace Platform_CTF.Controllers
 
         public ActionResult Index()
         {
-            var adminResp = _sessionAdmin.GetAllLoggedUsers();
+            var adminResp = _sessionAdmin.GetAllRegisteredUsers();
             var users = adminResp.Users; // Assuming Users is a property of type IEnumerable<UserMinimal>
-            var exerciseAdd = new ExerciseAdd();
-
-            var model = new Tuple<List<UDBTable>, ExerciseAdd>(users, exerciseAdd);
+            var addExercise = new Exercise();
+            var model = new Tuple<List<UDBTable>, Exercise>(users, addExercise);
 
             return View("~/Views/Home/AdminPanel.cshtml", model);
         }
 
-        [HttpPost]
+        /*[HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddExercise(Exercise exercise)
         {
@@ -56,14 +55,14 @@ namespace Platform_CTF.Controllers
                     db.SaveChanges();
                 }
 
-                return RedirectToAction("Index", "Admin");
+                return RedirectToAction("Index", "Challenge");
             }
             else
             {
                 ModelState.AddModelError("", resp.StatusMsg);
                 return View($"~/Views/Home/AdminPanel.cshtml");
             }
-        }
+        }*/
 
         public ActionResult BanUser(int id)
         {
@@ -72,7 +71,7 @@ namespace Platform_CTF.Controllers
                 var user = db.Users.FirstOrDefault(u => u.Id == id);
                 if (user != null)
                 {
-                    var banDuration = TimeSpan.FromDays(7); // Set the ban duration as needed
+                    var banDuration = TimeSpan.FromDays(1); // Set the ban duration as needed
                     var resp = _sessionAdmin.BanUser(user.Username, banDuration);
                     if (resp.Status)
                     {
@@ -102,7 +101,38 @@ namespace Platform_CTF.Controllers
                 Response.Cookies.Add(cookie);
             }
 
-            return View($"~/Views/Home/Login.cshtml");
+            return View($"~/Views/Home/Index.cshtml");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddExercise(Exercise exercise)
+        {
+            if (ModelState.IsValid)
+            {
+                Exercise data = new Exercise
+                {
+                    Name = exercise.Name,
+                    Description = exercise.Description,
+                    DownloadLink = exercise.DownloadLink,
+                    Category = exercise.Category,
+                    Flag = exercise.Flag,
+                    Level = exercise.Level,
+                    Points = exercise.Points
+                };
+
+                var addExercise = _sessionAdmin.AddExercise(data);
+                if (addExercise != null && addExercise.Status)
+                {
+                    return RedirectToAction("Index", "Admin");
+                }
+                else
+                {
+                    ModelState.AddModelError("", addExercise.StatusMsg);
+                }
+            }
+
+            return null;
         }
     }
 }

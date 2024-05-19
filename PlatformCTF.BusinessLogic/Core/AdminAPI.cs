@@ -1,51 +1,63 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using AutoMapper;
 using PlatformCTF.BusinessLogic.DBModel.Seed;
 using PlatformCTF.Domains.Entities.User;
-using PlatformCTF.Domain.Entities.User;
 
 namespace PlatformCTF.BusinessLogic.Core
 {
     public class AdminAPI
     {
-        public AdminResp AddExerciseAction(Exercise exercise)
+        internal AdminResp AddExerciseAction(Exercise data)
         {
+            Exercise challenge;
             using (var db = new ExerciseContext())
             {
-                db.Exercises.Add(exercise);
+                challenge = db.Exercises.FirstOrDefault(e => e.Name == data.Name);
+            }
+
+            if (challenge != null)
+            {
+                return new AdminResp { Status = false, StatusMsg = "Exercise with this name already exists" };
+            }
+
+            challenge = new Exercise
+            {
+                Name = data.Name,
+                Description = data.Description,
+                DownloadLink = data.DownloadLink,
+                Category = data.Category,
+                Level = data.Level,
+                Flag = data.Flag,
+                Points = data.Points
+            };
+            using (var db = new ExerciseContext())
+            {
+                db.Exercises.Add(challenge);
                 db.SaveChanges();
             }
 
-            return new AdminResp { Status = true, StatusMsg = "Exercise added" };
+            return new AdminResp { Status = true, StatusMsg = "Exercise added successfully" };
         }
 
 
-        public AdminResp GetAllLoggedUsersAction()
+        public AdminResp GetAllRegisteredUsersAction()
         {
-            List<UDBTable> loggedUsers = new List<UDBTable>();
+            List<UDBTable> registeredUsers = new List<UDBTable>();
             using (var db = new UserContext())
             {
-                var validSessions = db.Sessions.Where(s => s.ExpireTime > DateTime.Now).ToList();
-                foreach (var session in validSessions)
-                {
-                    var user = db.Users.FirstOrDefault(u => u.Id == session.UserId);
-                    if (user != null)
-                    {
-                        loggedUsers.Add(user);
-                    }
-                }
+                registeredUsers = db.Users.ToList();
             }
 
-            if (loggedUsers.Count > 0)
+            if (registeredUsers.Count > 0)
             {
                 return new AdminResp
-                    { Status = true, StatusMsg = "Logged users fetched successfully", Users = loggedUsers };
+                    { Status = true, StatusMsg = "Registered users fetched successfully", Users = registeredUsers };
             }
             else
             {
-                return new AdminResp { Status = false, StatusMsg = "No users are currently logged in" };
+                return new AdminResp { Status = false, StatusMsg = "No users are currently registered" };
             }
         }
 

@@ -1,0 +1,54 @@
+@{
+    ViewBag.Title = "Challenges";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Register</title>
+    <link href="~/Content/Site.css" rel="stylesheet"/>
+</head>
+<body>
+@if (!String.IsNullOrEmpty(ViewBag.NoExercisesMessage))
+{
+    <p>@ViewBag.NoExercisesMessage</p>
+}
+@model  List<PlatformCTF.Domains.Entities.User.Exercise>
+
+@if (!String.IsNullOrEmpty(ViewBag.Message))
+{
+    <p>@ViewBag.Message</p>
+}
+<h2>Challenges</h2>
+<div class="challenge-container">
+    @foreach (var exercise in Model)
+    {
+        <div class="challenge">
+            <h3>@exercise.Name</h3>
+            <p>@exercise.Description</p>
+            <p>Level: @exercise.Level</p>
+            <p>Category: @exercise.Category</p>
+            <a href="@exercise.DownloadLink" class="download-link">Download Link</a>
+            <button class="challenge-button" data-id="@exercise.Id">Open Challenge</button>
+        </div>
+        <div id="popup-@exercise.Id" class="popup-window" style="display: none;">
+            <h3>@exercise.Name</h3>
+            <p>@exercise.Description</p>
+            <button class="popup-close">Close</button>
+        </div>
+    }
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.challenge-button').on('click', function() {
+            var id = $(this).data('id');
+            $('#popup-' + id).show();
+        });
+        $(".popup-close").on('click', function() {
+            $(this).parent().hide();
+        });
+    });
+</script>
+</body>
+</html>

@@ -8,40 +8,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd6a4659-cace-4f31-9ac9-33ccc3d53f21" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Platform-CTF/Controllers/AdminController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platform-CTF/Controllers/ChallengeController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platform-CTF/Models/Challenge.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platform-CTF/Models/ExerciseAdd.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platform-CTF/Models/UserRegister.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platform-CTF/Views/Home/AdminPanel.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platform-CTF/Views/Home/Challenges.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/AdminSessionBl.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/DBModel/Seed/ExerciseContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Interfaces/ISessionAdmin.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/AdminResp.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/Exercise.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Platform-CTF/Views/Challenge/Challenges.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Platform-CTF/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Platform-CTF/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Platform-CTF/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Platform-CTF/.idea/dataSources/005214e7-eb74-4d66-8ab6-4b50e1691bf9.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Platform-CTF/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Platform-CTF/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platform-CTF/Controllers/LogedUserHomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Controllers/LogedUserHomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platform-CTF/Controllers/LoginController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Controllers/LoginController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform-CTF/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Controllers/AdminController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform-CTF/Controllers/ChallengeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Controllers/ChallengeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Platform-CTF/Controllers/RegisterController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Controllers/RegisterController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Platform-CTF/Global.asax.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Global.asax.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform-CTF/Models/Challenge.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Models/Challenge.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform-CTF/Models/ExerciseAdd.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Models/ExerciseAdd.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Platform-CTF/Platform-CTF.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Platform-CTF.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform-CTF/Views/Home/AdminPanel.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Views/Home/AdminPanel.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform-CTF/Views/Home/Challenges.cshtml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Platform-CTF/Views/Home/LogedHome.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Views/Home/LogedHome.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platform-CTF/Views/Home/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Views/Home/Login.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platform-CTF/Views/Home/Register.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Views/Home/Register.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Platform-CTF/Web.config" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Web.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/BusinessLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/BusinessLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform-CTF/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/packages.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/AdminSessionBl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/AdminSessionBl.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Core/AdminAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Core/AdminAPI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Core/UserAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Core/UserAPI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/DBModel/Seed/SessionContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/DBModel/Seed/SessionContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/DBModel/Seed/UserContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/DBModel/Seed/UserContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Interfaces/ISession.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Interfaces/ISession.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Interfaces/ISessionAdmin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Interfaces/ISessionAdmin.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/PlatformCTF.BusinessLogic.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/PlatformCTF.BusinessLogic.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/SessionBl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/SessionBl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/Session.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/Session.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/UDBTable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/UDBTable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/AdminResp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/AdminResp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/Exercise.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/Exercise.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/ULoginResp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/ULoginResp.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlatformCTF.Domains/PlatformCTF.Domains.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.Domains/PlatformCTF.Domains.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlatformCTF.Helpers/LoginHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.Helpers/LoginHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlatformCTF.Helpers/PlatformCTF.Helpers.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.Helpers/PlatformCTF.Helpers.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,58 +60,26 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/ef6/5d5addd3462f19c6a0e829b4b34825287b999274/src/EntityFramework.SqlServer/DefaultSqlExecutionStrategy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/ef6/5d5addd3462f19c6a0e829b4b34825287b999274/src/EntityFramework/Internal/InternalContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/efcore/899d9d9622b9909d153341269427040818d461c6/src/EFCore/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/068a3c4080104e51828ab210be168ae84c2978/60/b7719157/RetryAction`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2ef0191b30684937a869061138f38973572e20/7a/9c602295/Tuple`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c11f3b1e27ba4255a48f3fa4d01496ab861d8/52/82e85bd7/ControllerActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c11f3b1e27ba4255a48f3fa4d01496ab861d8/58/3870a402/WebViewPage`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c11f3b1e27ba4255a48f3fa4d01496ab861d8/70/131d196e/ActionMethodDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c11f3b1e27ba4255a48f3fa4d01496ab861d8/82/095aecc3/ReflectedActionDescriptor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c11f3b1e27ba4255a48f3fa4d01496ab861d8/83/07a648d3/Controller.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cf66837a802945f28fa86120ded75aed529220/17/7f44529c/HttpResponse.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cf66837a802945f28fa86120ded75aed529220/a5/5a2b8b27/HttpApplication.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e4e9310d6e504b9195be7c4cd0c0cfcd574c30/5c/2cd12eae/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e4e9310d6e504b9195be7c4cd0c0cfcd574c30/68/eacc8191/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ee77da9be5eb48fd87455ccd8aeaccec110a58/d9/b1eb364e/DbSet`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/Platform-CTF/Controllers/LogedUserHomeController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/Platform-CTF/Controllers/LogedUserHomeController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/Platform-CTF/Controllers/LoginController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/Platform-CTF/Controllers/LoginController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/Platform-CTF/Controllers/RegisterController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/Platform-CTF/Controllers/RegisterController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/Platform-CTF/Global.asax.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/Platform-CTF/Global.asax.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/Platform-CTF/Models/ExerciseAdd.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/Platform-CTF/Views/Home/LogedHome.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/Platform-CTF/Views/Home/LogedHome.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/Platform-CTF/Views/Home/Login.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/Platform-CTF/Views/Home/Login.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/Platform-CTF/Views/Home/Register.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/Platform-CTF/Views/Home/Register.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/Platform-CTF/Web.config" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/Platform-CTF/Web.config" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.BusinessLogic/BusinessLogic.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.BusinessLogic/BusinessLogic.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.BusinessLogic/Core/AdminAPI.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.BusinessLogic/Core/AdminAPI.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.BusinessLogic/Core/AdminAPI.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.BusinessLogic/Core/UserAPI.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.BusinessLogic/Core/UserAPI.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.BusinessLogic/DBModel/Seed/ExerciseContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.BusinessLogic/DBModel/Seed/SessionContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.BusinessLogic/DBModel/Seed/SessionContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.BusinessLogic/DBModel/Seed/UserContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.BusinessLogic/DBModel/Seed/UserContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.BusinessLogic/Interfaces/ISession.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.BusinessLogic/Interfaces/ISession.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.BusinessLogic/Interfaces/ISessionAdmin.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.BusinessLogic/SessionBl.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.BusinessLogic/SessionBl.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.Domains/Entities/User/AdminResp.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.Domains/Entities/User/Exercise.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.Domains/Entities/User/Session.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.Domains/Entities/User/Session.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.Domains/Entities/User/UDBTable.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.Domains/Entities/User/UDBTable.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.Domains/Entities/User/ULoginResp.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.Domains/Entities/User/ULoginResp.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.Helpers/LoginHelper.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.Helpers/LoginHelper.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.Helpers/LoginHelper.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/user/RiderProjects/Platform-CTF/PlatformCTF.Helpers/LoginHelper.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -136,7 +99,6 @@
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -144,6 +106,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;RiderNuGetOptionsPageId&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -197,7 +160,39 @@
       <workItem from="1713471474647" duration="792000" />
       <workItem from="1713617347287" duration="711000" />
       <workItem from="1713728812609" duration="293000" />
+      <workItem from="1714484873347" duration="324000" />
+      <workItem from="1715596020121" duration="112000" />
+      <workItem from="1715596327001" duration="3217000" />
+      <workItem from="1715669590729" duration="1915000" />
+      <workItem from="1715671556276" duration="2541000" />
+      <workItem from="1715675874235" duration="4560000" />
+      <workItem from="1715681871866" duration="5304000" />
+      <workItem from="1715716219073" duration="2832000" />
+      <workItem from="1715757161349" duration="106000" />
+      <workItem from="1715757341828" duration="1740000" />
+      <workItem from="1715759118830" duration="1426000" />
+      <workItem from="1715762556504" duration="1619000" />
+      <workItem from="1715764261950" duration="869000" />
+      <workItem from="1715765188396" duration="3422000" />
+      <workItem from="1715792562944" duration="1330000" />
+      <workItem from="1715867328272" duration="9925000" />
+      <workItem from="1715889371736" duration="4890000" />
+      <workItem from="1715935387563" duration="53000" />
+      <workItem from="1715935454931" duration="451000" />
+      <workItem from="1715935921848" duration="1835000" />
+      <workItem from="1715946704202" duration="1617000" />
+      <workItem from="1715969412021" duration="3176000" />
+      <workItem from="1716147522996" duration="1579000" />
     </task>
+    <task id="LOCAL-00001" summary="Some Admin functions added">
+      <option name="closed" value="true" />
+      <created>1714484761083</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714484761083</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,7 +211,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -231,6 +226,31 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Some Admin functions added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some Admin functions added" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Platform-CTF/Controllers/AdminController.cs</url>
+          <line>109</line>
+          <properties documentPath="E:\Users\user\RiderProjects\Platform-CTF\Platform-CTF\Controllers\AdminController.cs" containingFunctionPresentation="Method 'AddExercise'">
+            <startOffsets>
+              <option value="3581" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3582" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Frame#Platform_CTF.Controllers.AdminController.AddExercise" memberName="exercise" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

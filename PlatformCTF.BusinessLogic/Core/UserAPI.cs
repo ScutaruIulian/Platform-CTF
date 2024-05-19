@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -185,13 +185,30 @@ namespace PlatformCTF.BusinessLogic.Core
             // Save the new user to the database
             using (var db = new UserContext())
             {
-                Database.SetInitializer<UserContext>(new CreateDatabaseIfNotExists<UserContext>());
                 db.Users.Add(user);
                 db.SaveChanges();
             }
 
             // Return a successful response
             return new ULoginResp { Status = true, StatusMsg = "User registered successfully" };
+        }
+        public ULoginResp ShowAllExercisesAction()
+        {
+            List<Exercise> exercises = new List<Exercise>();
+            using (var db = new ExerciseContext())
+            {
+                exercises = db.Exercises.ToList();
+            }
+
+            if (exercises.Count > 0)
+            {
+                return new ULoginResp
+                    { Status = true, StatusMsg = "Exercises fetched successfully", Exercises = exercises };
+            }
+            else
+            {
+                return new ULoginResp { Status = false, StatusMsg = "No exercises are currently available" };
+            }
         }
     }
 }

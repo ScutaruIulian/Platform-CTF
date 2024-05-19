@@ -1,6 +1,5 @@
 ﻿using PlatformCTF.BusinessLogic.Interfaces;
 using PlatformCTF.Domains.Entities.User;
-using System;
 using System.Web;
 using PlatformCTF.BusinessLogic.Core;
 using PlatformCTF.Domain.Entities.User;
@@ -29,6 +28,9 @@ namespace PlatformCTF.BusinessLogic
         {
             return UserRegisterAction(uRegisterData);
         }
-        
+        public ULoginResp ShowAllExercises()
+        {
+            return ShowAllExercisesAction();
+        }
     }
 }

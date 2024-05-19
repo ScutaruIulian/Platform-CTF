@@ -7,25 +7,29 @@ namespace Platform_CTF.Models
         [Required]
         [Display(Name = "Exercise Name")]
         public string Name { get; set; }
-        
+
         [Required]
+        [DataType(DataType.Text)]
         [Display(Name = "Exercise Description")]
         public string Description { get; set; }
         
-        [Required]
+        [DataType(DataType.Url)]
         [Display(Name = "Link to download if need exercise")]
         public string DownloadLink { get; set; }
-        
+
         [Required]
+        [DataType(DataType.Text)]
         [Display(Name = "Category")]
         public string Category { get; set; }
-        
-        [Required]
-        [Display(Name = "Flag")]
+
+        [Required] 
+        [DataType(DataType.Text)]
+        [Display(Name = "Flag")] 
         public string Flag { get; set; }
-        
-        [Required]
-        [Display(Name = "Level")]
-        public int Level { get; set; }
+
+        [Required] 
+        [DataType(DataType.Text)]
+        [Display(Name = "Level")] 
+        public string Level { get; set; }
     }
 }

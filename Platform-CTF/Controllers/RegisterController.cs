@@ -49,10 +49,5 @@ namespace PlatformCTF.Controllers
 
             return View($"~/Views/Home/Register.cshtml");
         }
-
-        public ActionResult Register()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

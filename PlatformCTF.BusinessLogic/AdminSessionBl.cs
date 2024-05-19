@@ -1,6 +1,5 @@
 using System;
 using PlatformCTF.BusinessLogic.Core;
-using PlatformCTF.BusinessLogic.DBModel.Seed;
 using PlatformCTF.BusinessLogic.Interfaces;
 using PlatformCTF.Domains.Entities.User;
 
@@ -13,9 +12,9 @@ namespace PlatformCTF.BusinessLogic
             return AddExerciseAction(exercise);
         }
         
-        public AdminResp GetAllLoggedUsers()
+        public AdminResp GetAllRegisteredUsers()
         {
-            return GetAllLoggedUsersAction();
+            return GetAllRegisteredUsersAction();
         }
         public AdminResp BanUser(string username, TimeSpan banDuration)
         {

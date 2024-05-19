@@ -1,4 +1,6 @@
+@using PlatformCTF.Domain.Entities.User
 @using PlatformCTF.Domains.Enums
+@using PlatformCTF.Web.Controllers
 @{
     ViewBag.Title = "LogedHome";
 }
@@ -11,9 +13,28 @@
     <p>Good luck!</p>
 </div>
 @{
-    if (ViewBag.UserRole == URole.Admin)
-    {
+        var authCookie = Request.Cookies["X-KEY"];
+        UserMinimal currentUser = null;
+
+        if (authCookie != null)
+        {
+            string authToken = authCookie.Value;
+
+            var login = new LoginController();
+            currentUser = login.GetUserDetails(authToken);
+        }
+
+        if (currentUser?.Level == URole.Admin)
+        {
         <a href="@Url.Action("Index", "Admin")" class="btn btn-primary">Admin Panel</a>
     }
 }
+
+@{
+    if (currentUser?.Level == URole.Admin || currentUser?.Level == URole.User)
+    {
+        <a href="@Url.Action("Challenges", "Challenge")" class="btn btn-primary">Challenges</a>
+    }
+}
+
 @Html.ActionLink("Logout", "Logout", "Login")

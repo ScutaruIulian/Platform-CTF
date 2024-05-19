@@ -7,7 +7,7 @@ namespace PlatformCTF.BusinessLogic.Interfaces
     public interface ISessionAdmin
     {
         AdminResp AddExercise(Exercise exercise);
-        AdminResp GetAllLoggedUsers();
+        AdminResp GetAllRegisteredUsers();
         AdminResp BanUser(string username, TimeSpan banDuration);
     }
 }
