@@ -22,7 +22,8 @@ namespace PlatformCTF.BusinessLogic.Core
                 return new ULoginResp { Status = false, StatusMsg = "Data is null" };
             }
 
-            if (!new EmailAddressAttribute().IsValid(data.Credentials) && !new RegularExpressionAttribute(@"^[a-zA-Z0-9]*$").IsValid(data.Credentials))
+            if (!new EmailAddressAttribute().IsValid(data.Credentials) &&
+                !new RegularExpressionAttribute(@"^[a-zA-Z0-9]*$").IsValid(data.Credentials))
             {
                 return new ULoginResp { Status = false, StatusMsg = "Credentials is not a valid email or username" };
             }
@@ -31,9 +32,10 @@ namespace PlatformCTF.BusinessLogic.Core
             {
                 return new ULoginResp { Status = false, StatusMsg = "Password is not a valid password" };
             }
+
             UDBTable user;
             var validate = new EmailAddressAttribute();
-            var hashedPassword = LoginHelper.HashGen(data.Password); 
+            var hashedPassword = LoginHelper.HashGen(data.Password);
             using (var db = new UserContext())
             {
                 if (validate.IsValid(data.Credentials))
@@ -51,7 +53,7 @@ namespace PlatformCTF.BusinessLogic.Core
                 return new ULoginResp { Status = false, StatusMsg = "The Username or Password is Incorrect" };
             }
 
-           
+
             if (user.IsBanned && user.BanEndTime > DateTime.Now)
             {
                 return new ULoginResp { Status = false, StatusMsg = "You are banned!!!" };
@@ -192,6 +194,7 @@ namespace PlatformCTF.BusinessLogic.Core
             // Return a successful response
             return new ULoginResp { Status = true, StatusMsg = "User registered successfully" };
         }
+
         public ULoginResp ShowAllExercisesAction()
         {
             List<Exercise> exercises = new List<Exercise>();
@@ -208,6 +211,29 @@ namespace PlatformCTF.BusinessLogic.Core
             else
             {
                 return new ULoginResp { Status = false, StatusMsg = "No exercises are currently available" };
+            }
+        }
+
+        public ULoginResp SubmitFlagAction(int challengeId, string submittedFlag)
+        {
+            Exercise challenge;
+            using (var db = new ExerciseContext())
+            {
+                challenge = db.Exercises.FirstOrDefault(e => e.Id == challengeId); 
+            }
+
+            if (challenge == null)
+            {
+                return new ULoginResp { Status = false, StatusMsg = "Challenge not found" };
+            }
+
+            if (challenge.Flag == submittedFlag)
+            {
+                return new ULoginResp { Status = true, StatusMsg = "Correct flag!" };
+            }
+            else
+            {
+                return new ULoginResp { Status = false, StatusMsg = "Incorrect flag." };
             }
         }
     }

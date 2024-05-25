@@ -16,41 +16,30 @@ namespace Platform_CTF.Controllers
             _session = bl.GetSessionBL();
         }
 
-
-        /*// POST: Challenge/SubmitFlag
         [HttpPost]
-        public ActionResult SubmitFlag(int challengeId, string submittedFlag)
+        public JsonResult SubmitFlag(int challengeId, string submittedFlag)
         {
-            var challenge = _context.Exercises.Find(challengeId);
-            if (challenge == null)
-            {
-                return new HttpNotFoundResult("Challenge not found");
-            }
+            var response = _session.SubmitFlag(challengeId, submittedFlag);
+            return Json(response);
+        }
 
-            if (challenge.Flag == submittedFlag)
-            {
-                // The submitted flag is correct
-                // You can add any additional logic here, such as awarding points to the user
-                return Content("Correct flag!");
-            }
-            else
-            {
-                // The submitted flag is incorrect
-                return Content("Incorrect flag.");
-            }
-        }*/
+
         [HttpGet]
         public ActionResult Challenges()
         {
-            var exercisesResponse = _session.ShowAllExercises(); 
-            var exercises = exercisesResponse.Exercises; 
-            if (exercises == null) 
-            {
-                exercises = new List<Exercise>(); 
-            }
-            var model = new List<Exercise>(exercises); 
+            var exercisesResponse = _session.ShowAllExercises();
+            List<Exercise> exercises;
 
-            return View("Challenges",model);
+            if (exercisesResponse != null && exercisesResponse.Exercises != null)
+            {
+                exercises = new List<Exercise>(exercisesResponse.Exercises);
+            }
+            else
+            {
+                exercises = new List<Exercise>();
+            }
+
+            return View("Challenges", exercises);
         }
     }
 }

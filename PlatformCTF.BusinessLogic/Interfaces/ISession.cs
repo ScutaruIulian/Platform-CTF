@@ -11,6 +11,7 @@ namespace PlatformCTF.BusinessLogic.Interfaces
         UserMinimal GetUserByCookie(string apiCookieValue);
         ULoginResp UserRegister(URegisterData uregisterData);
         ULoginResp ShowAllExercises();
+        ULoginResp SubmitFlag(int challengeId, string submittedFlag);
     }
 
 }

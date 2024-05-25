@@ -32,5 +32,9 @@ namespace PlatformCTF.BusinessLogic
         {
             return ShowAllExercisesAction();
         }
+        public ULoginResp SubmitFlag(int challengeId, string submittedFlag)
+        {
+            return SubmitFlagAction(challengeId, submittedFlag);
+        }
     }
 }

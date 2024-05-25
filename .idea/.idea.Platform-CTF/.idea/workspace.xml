@@ -8,35 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd6a4659-cace-4f31-9ac9-33ccc3d53f21" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Platform-CTF/Views/Challenge/Challenges.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Platform-CTF/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Platform-CTF/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Platform-CTF/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Platform-CTF/.idea/dataSources/005214e7-eb74-4d66-8ab6-4b50e1691bf9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Platform-CTF/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Platform-CTF/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platform-CTF/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Controllers/AdminController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Platform-CTF/Controllers/ChallengeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Controllers/ChallengeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platform-CTF/Controllers/RegisterController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Controllers/RegisterController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platform-CTF/Global.asax.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Global.asax.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platform-CTF/Models/Challenge.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Models/Challenge.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platform-CTF/Models/ExerciseAdd.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Models/ExerciseAdd.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform-CTF/Models/Challenge.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform-CTF/Models/ExerciseAdd.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Platform-CTF/Platform-CTF.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Platform-CTF.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platform-CTF/Views/Home/AdminPanel.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Views/Home/AdminPanel.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platform-CTF/Views/Home/Challenges.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platform-CTF/Views/Home/LogedHome.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Views/Home/LogedHome.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platform-CTF/Web.config" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Web.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platform-CTF/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/packages.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/AdminSessionBl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/AdminSessionBl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Core/AdminAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Core/AdminAPI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform-CTF/Views/Challenge/Challenges.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Platform-CTF/Views/Challenge/Challenges.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Core/UserAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Core/UserAPI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Interfaces/ISession.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Interfaces/ISession.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Interfaces/ISessionAdmin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/Interfaces/ISessionAdmin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/PlatformCTF.BusinessLogic.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/PlatformCTF.BusinessLogic.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/SessionBl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.BusinessLogic/SessionBl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/AdminResp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/AdminResp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/Exercise.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/Exercise.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/ULoginResp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.Domains/Entities/User/ULoginResp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlatformCTF.Domains/PlatformCTF.Domains.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.Domains/PlatformCTF.Domains.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlatformCTF.Helpers/PlatformCTF.Helpers.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PlatformCTF.Helpers/PlatformCTF.Helpers.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,6 +162,7 @@
       <workItem from="1715946704202" duration="1617000" />
       <workItem from="1715969412021" duration="3176000" />
       <workItem from="1716147522996" duration="1579000" />
+      <workItem from="1716663484849" duration="4688000" />
     </task>
     <task id="LOCAL-00001" summary="Some Admin functions added">
       <option name="closed" value="true" />

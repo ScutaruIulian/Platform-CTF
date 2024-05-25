@@ -21,21 +21,35 @@
 }
 <h2>Challenges</h2>
 <div class="challenge-container">
-    @foreach (var exercise in Model)
+    @if (Model != null)
     {
-        <div class="challenge">
-            <h3>@exercise.Name</h3>
-            <p>@exercise.Description</p>
-            <p>Level: @exercise.Level</p>
-            <p>Category: @exercise.Category</p>
-            <a href="@exercise.DownloadLink" class="download-link">Download Link</a>
-            <button class="challenge-button" data-id="@exercise.Id">Open Challenge</button>
-        </div>
-        <div id="popup-@exercise.Id" class="popup-window" style="display: none;">
-            <h3>@exercise.Name</h3>
-            <p>@exercise.Description</p>
-            <button class="popup-close">Close</button>
-        </div>
+        foreach (var exercise in Model)
+        {
+            <div class="challenge">
+                <h3>@exercise.Name</h3>
+                <p>@exercise.Description</p>
+                <p>Level: @exercise.Level</p>
+                <p>Category: @exercise.Category</p>
+                <a href="@exercise.DownloadLink" class="download-link">Download Link</a>
+                <button class="challenge-button" data-id="@exercise.Id">Open Challenge</button>
+
+                <form action="@Url.Action("SubmitFlag", "Challenge")" method="post">
+                    <input type="hidden" name="challengeId" value="@exercise.Id"/>
+                    <input type="hidden" name="userId" value="@ViewBag.UserId"/>
+                    <input type="text" name="submittedFlag" placeholder="Enter your flag"/>
+                    <input type="submit" value="Submit Flag"/>
+                </form>
+            </div>
+            <div id="popup-@exercise.Id" class="popup-window" style="display: none;">
+                <h3>@exercise.Name</h3>
+                <p>@exercise.Description</p>
+                <button class="popup-close">Close</button>
+            </div>
+        }
+    }
+    else
+    {
+        <p>No challenges available</p>
     }
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -47,6 +61,23 @@
         });
         $(".popup-close").on('click', function() {
             $(this).parent().hide();
+        });
+
+        $('form').on('submit', function(e) {
+            e.preventDefault();
+
+            var form = $(this);
+            var url = form.attr('action');
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: form.serialize(), // serializes the form's elements.
+                success: function(data)
+                {
+                    alert(data.StatusMsg); // show response from the server.
+                }
+            });
         });
     });
 </script>
