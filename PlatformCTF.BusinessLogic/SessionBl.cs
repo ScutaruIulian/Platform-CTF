@@ -1,9 +1,8 @@
-﻿using PlatformCTF.BusinessLogic.Interfaces;
-using PlatformCTF.Domains.Entities.User;
-using System.Web;
+﻿using System.Web;
 using PlatformCTF.BusinessLogic.Core;
+using PlatformCTF.BusinessLogic.Interfaces;
 using PlatformCTF.Domain.Entities.User;
-
+using PlatformCTF.Domains.Entities.User;
 
 namespace PlatformCTF.BusinessLogic
 {
@@ -28,10 +27,12 @@ namespace PlatformCTF.BusinessLogic
         {
             return UserRegisterAction(uRegisterData);
         }
+
         public ULoginResp ShowAllExercises()
         {
             return ShowAllExercisesAction();
         }
+
         public ULoginResp SubmitFlag(int challengeId, string submittedFlag)
         {
             return SubmitFlagAction(challengeId, submittedFlag);

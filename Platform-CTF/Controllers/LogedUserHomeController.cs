@@ -4,21 +4,15 @@ using PlatformCTF.BusinessLogic.Interfaces;
 
 namespace Platform_CTF.Controllers
 {
-    public class LogedUserHomeController: Controller
+    public class LoggedUserHomeController : Controller
     {
-        private readonly ISession _session;
+        private readonly ISession _session = new BusinessLogic().GetSessionBL();
 
-        public LogedUserHomeController()
+        public ActionResult LoggedHome()
         {
-            var bl = new BusinessLogic();
-            _session = bl.GetSessionBL();
-        }
-
-        public ActionResult Index()
-        {
-            var user = _session.GetUserByCookie(Request.Cookies["X-KEY"].Value);
-            ViewBag.UserRole = user.Level;
-            return View($"~/Views/Home/LogedHome.cshtml");
+            var user = _session.GetUserByCookie(Request.Cookies["X-KEY"]?.Value);
+            if (user != null) ViewBag.UserRole = user.Level;
+            return View();
         }
     }
 }

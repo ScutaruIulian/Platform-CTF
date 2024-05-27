@@ -5,10 +5,10 @@ namespace PlatformCTF.BusinessLogic.DBModel.Seed
 {
     public class ExerciseContext : DbContext
     {
-        public ExerciseContext() : base("name=ULogin")
+        public ExerciseContext() : base("ULogin")
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<ExerciseContext>());
         }
+
         public virtual DbSet<Exercise> Exercises { get; set; }
     }
 }

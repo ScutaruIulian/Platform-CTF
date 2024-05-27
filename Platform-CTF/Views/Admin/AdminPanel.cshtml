@@ -1,6 +1,3 @@
-@using PlatformCTF.Domain.Entities.User
-@using PlatformCTF.Domains.Enums
-@using PlatformCTF.Web.Controllers
 @{
     ViewBag.Title = "Admin Panel";
 
@@ -9,19 +6,22 @@
 
     if (authCookie != null)
     {
-        string authToken = authCookie.Value;
+        var authToken = authCookie.Value;
 
         var login = new LoginController();
         currentUser = login.GetUserDetails(authToken);
     }
 }
 
+@using Platform_CTF.Controllers
+@using PlatformCTF.Domain.Entities.User
+@using PlatformCTF.Domains.Enums
 @model Tuple<List<PlatformCTF.Domains.Entities.User.UDBTable>, PlatformCTF.Domains.Entities.User.Exercise>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width"/>
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="~/Content/AdminPanel.css">
 </head>
@@ -33,7 +33,7 @@
     <a href="@Url.Action("Challenges", "Challenge")">Challenges</a>
     @if (currentUser?.Level == URole.Admin)
     {
-        <a href="@Url.Action("Index", "Admin")">Admin Panel</a>
+        <a href="@Url.Action("AdminPanel", "Admin")">Admin Panel</a>
     }
     <a href="@Url.Action("Logout", "Login")">Logout</a>
 </div>
@@ -50,25 +50,25 @@
         {
             <table class="table">
                 <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Role</th>
-                        <th>Actions</th>
-                    </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
                 </thead>
                 <tbody>
-                    @foreach (var user in Model.Item1)
-                    {
-                        <tr>
-                            <td>@user.Id</td>
-                            <td>@user.Username</td>
-                            <td>@user.Level</td>
-                            <td>
-                                <a href="@Url.Action("BanUser", "Admin", new { id = user.Id })">Ban</a>
-                            </td>
-                        </tr>
-                    }
+                @foreach (var user in Model.Item1)
+                {
+                    <tr>
+                        <td>@user.Id</td>
+                        <td>@user.Username</td>
+                        <td>@user.Level</td>
+                        <td>
+                            <a href="@Url.Action("BanUser", "Admin", new { id = user.Id })">Ban</a>
+                        </td>
+                    </tr>
+                }
                 </tbody>
             </table>
         }
@@ -83,35 +83,38 @@
         @using (Html.BeginForm("AddExercise", "Admin", FormMethod.Post, new { id = "addExerciseForm" }))
         {
             @Html.AntiForgeryToken()
-
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input type="text" id="Name" name="Name" required/>
+            </div>
             <div class="form-group">
                 <label for="Description">Description</label>
-                <input type="text" id="Description" name="Description" required />
+                <input type="text" id="Description" name="Description" required/>
             </div>
 
             <div class="form-group">
                 <label for="DownloadLink">Download Link</label>
-                <input type="text" id="DownloadLink" name="DownloadLink" required />
+                <input type="text" id="DownloadLink" name="DownloadLink" required/>
             </div>
 
             <div class="form-group">
                 <label for="Level">Level</label>
-                <input type="text" id="Level" name="Level" required />
+                <input type="text" id="Level" name="Level" required/>
             </div>
 
             <div class="form-group">
                 <label for="Category">Category</label>
-                <input type="text" id="Category" name="Category" required />
+                <input type="text" id="Category" name="Category" required/>
             </div>
 
             <div class="form-group">
                 <label for="Flag">Flag</label>
-                <input type="text" id="Flag" name="Flag" required />
+                <input type="text" id="Flag" name="Flag" required/>
             </div>
 
             <div class="form-group">
                 <label for="Points">Points</label>
-                <input type="text" id="Points" name="Points" required />
+                <input type="text" id="Points" name="Points" required/>
             </div>
 
             <button type="submit" class="btn" id="addExerciseButton">Add</button>

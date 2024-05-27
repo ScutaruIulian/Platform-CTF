@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Register";
+}
+@model Platform_CTF.Models.UserRegister
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/RegisterStyle.css">
+</head>
+<body>
+<div class="sidebar" id="mySidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">Scoreboard</a>
+    <a href="#">Regulament</a>
+    <a href="#">Challanges</a>
+</div>
+
+<button class="openbtn" onclick="toggleNav()">☰ Menu</button>
+
+<div class="register-container">
+    <div class="register">
+        <h2>Register</h2>
+        @using (Html.BeginForm("Login", "Register", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <label>Username</label>
+                @Html.TextBoxFor(model => model.Username, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                @Html.TextBoxFor(model => model.Password, new { @class = "form-control", name = "password", type = "password" })
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        }
+    </div>
+</div>
+
+<script>
+    function toggleNav() {
+        var sidebar = document.getElementById("mySidebar");
+        var openbtn = document.getElementsByClassName("openbtn")[0];
+        if (sidebar.style.width === "250px") {
+            closeNav();
+            openbtn.style.marginLeft = "0";
+        } else {
+            openNav();
+            openbtn.style.marginLeft = "250px";
+        }
+    }
+
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+    }
+</script>
+</body>
+</html>

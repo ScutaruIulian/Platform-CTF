@@ -1,27 +1,21 @@
 ﻿using System;
-using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
-using PlatformCTF.Domains.Entities.User;
-using Platform_CTF.Models; 
+using Platform_CTF.Models;
+using PlatformCTF.BusinessLogic;
 using PlatformCTF.BusinessLogic.Interfaces;
 using PlatformCTF.Domain.Entities.User;
+using PlatformCTF.Domains.Entities.User;
 
-namespace PlatformCTF.Web.Controllers
+namespace Platform_CTF.Controllers
 {
     public class LoginController : Controller
     {
-        private readonly ISession _session;
+        private readonly ISession _session = new BusinessLogic().GetSessionBL();
 
-        public LoginController()
+        public ActionResult Login()
         {
-            var bl = new BusinessLogic.BusinessLogic();
-            _session = bl.GetSessionBL();
-        }
-        
-        public ActionResult Index()
-        {
-            return View($"~/Views/Home/Login.cshtml");
+            return View();
         }
 
         [HttpPost]
@@ -40,28 +34,24 @@ namespace PlatformCTF.Web.Controllers
                 var userLogin = _session.UserLogin(data);
                 if (userLogin.Status)
                 {
-                    HttpCookie cookie = _session.GenCookie(login.Credentials);
+                    var cookie = _session.GenCookie(login.Credentials);
                     ControllerContext.HttpContext.Response.Cookies.Add(cookie);
-                    
-                    HttpCookie xKeyCookie = new HttpCookie("X-KEY", cookie.Value);
-                    ControllerContext.HttpContext.Response.Cookies.Add(xKeyCookie);
 
-                    return RedirectToAction("Index", "LogedUserHome");
+                    return RedirectToAction("LoggedHome", "LoggedUserHome");
                 }
-                else
-                {
-                    ModelState.AddModelError("", userLogin.StatusMsg);
-                    return View($"~/Views/Home/Login.cshtml");
-                }
+
+                ModelState.AddModelError("", userLogin.StatusMsg);
+                return View("~/Views/Home/Login.cshtml");
             }
 
-            return View($"~/Views/Home/LogedHome.cshtml");
+            return View("~/Views/Home/LogedHome.cshtml");
         }
-        
+
         public UserMinimal GetUserDetails(string authToken)
         {
             return _session.GetUserByCookie(authToken);
         }
+
         public ActionResult LogOut()
         {
             var cookie = Request.Cookies["X-KEY"];
@@ -69,9 +59,10 @@ namespace PlatformCTF.Web.Controllers
             {
                 cookie.Expires = DateTime.Now.AddDays(-1);
                 Response.Cookies.Add(cookie);
+                Session.Abandon();
             }
 
-            return View($"~/Views/Home/Login.cshtml");
+            return View("Login", "Login");
         }
     }
 }

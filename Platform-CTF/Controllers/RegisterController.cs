@@ -1,4 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Security.Authentication;
+using System.Web.Mvc;
+using AutoMapper;
+using Platform_CTF.Models;
+using PlatformCTF.BusinessLogic;
 using PlatformCTF.BusinessLogic.Interfaces;
 using PlatformCTF.Domains.Entities.User;
 
@@ -6,48 +11,41 @@ namespace Platform_CTF.Controllers
 {
     public class RegisterController : Controller
     {
-        private readonly ISession _session;
+        private readonly ISession _session = new BusinessLogic().GetSessionBL();
 
-        public RegisterController()
+        public ActionResult Register()
         {
-            var bl = new PlatformCTF.BusinessLogic.BusinessLogic();
-            _session = bl.GetSessionBL();
-        }
-
-        // Aquire registration
-        public ActionResult Index()
-        { 
-            return View($"~/Views/Home/Register.cshtml");
-            
+            return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(URegisterData register)
+        public ActionResult Login(UserRegister register)
         {
             if (ModelState.IsValid)
             {
-                URegisterData data = new URegisterData
-                {
-                    Username = register.Username,
-                    Password = register.Password,
-                    Email = register.Email
-                };
+                var config = new MapperConfiguration(cfg => cfg.CreateMap<UserRegister, URegisterData>());
+                var mapper = config.CreateMapper();
+                var data = mapper.Map<URegisterData>(register);
+
+                data.IpAddress = Request.UserHostAddress;
+                data.RegisterDateTime = DateTime.Now;
 
                 var userRegister = _session.UserRegister(data);
-                if (userRegister != null && userRegister.Status)
+
+                if (userRegister == null) throw new AuthenticationException("No response auth");
+
+                if (userRegister.Status)
                 {
-                    //ADD COOKIE
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    ModelState.AddModelError("", userRegister.StatusMsg);
-                    //return View($"~");
+                    var cookie = _session.GenCookie(register.Username);
+                    ControllerContext.HttpContext.Response.Cookies.Add(cookie);
+
+                    return RedirectToAction("LoggedHome", "LoggedUserHome");
                 }
             }
 
-            return View($"~/Views/Home/Register.cshtml");
+            ModelState.AddModelError("", "Modelstate invalid");
+            return RedirectToAction("Landing", "Home");
         }
     }
 }

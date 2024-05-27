@@ -1,20 +1,15 @@
-using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using PlatformCTF.BusinessLogic;
+using PlatformCTF.BusinessLogic.DBModel.Seed;
 using PlatformCTF.BusinessLogic.Interfaces;
-using PlatformCTF.Domains.Entities.User;
 
 namespace Platform_CTF.Controllers
 {
     public class ChallengeController : Controller
     {
-        private readonly ISession _session;
-
-        public ChallengeController()
-        {
-            var bl = new BusinessLogic();
-            _session = bl.GetSessionBL();
-        }
+        private readonly ExerciseContext _exercises = new();
+        private readonly ISession _session = new BusinessLogic().GetSessionBL();
 
         [HttpPost]
         public JsonResult SubmitFlag(int challengeId, string submittedFlag)
@@ -27,19 +22,9 @@ namespace Platform_CTF.Controllers
         [HttpGet]
         public ActionResult Challenges()
         {
-            var exercisesResponse = _session.ShowAllExercises();
-            List<Exercise> exercises;
+            var display = _exercises.Exercises.ToList();
 
-            if (exercisesResponse != null && exercisesResponse.Exercises != null)
-            {
-                exercises = new List<Exercise>(exercisesResponse.Exercises);
-            }
-            else
-            {
-                exercises = new List<Exercise>();
-            }
-
-            return View("Challenges", exercises);
+            return View(display);
         }
     }
 }

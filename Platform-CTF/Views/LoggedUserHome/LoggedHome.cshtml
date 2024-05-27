@@ -1,14 +1,14 @@
+@using Platform_CTF.Controllers
 @using PlatformCTF.Domain.Entities.User
 @using PlatformCTF.Domains.Enums
-@using PlatformCTF.Web.Controllers
 @{
-ViewBag.Title = "LogedHome";
+    ViewBag.Title = "LogedHome";
 }
 
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width"/>
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="~/Content/LoggedHome.css">
     <style>
@@ -19,16 +19,16 @@ ViewBag.Title = "LogedHome";
 </head>
 <body>
 @{
-var authCookie = Request.Cookies["X-KEY"];
-UserMinimal currentUser = null;
+    var authCookie = Request.Cookies["X-KEY"];
+    UserMinimal currentUser = null;
 
-if (authCookie != null)
-{
-string authToken = authCookie.Value;
+    if (authCookie != null)
+    {
+        var authToken = authCookie.Value;
 
-var login = new LoginController();
-currentUser = login.GetUserDetails(authToken);
-}
+        var login = new LoginController();
+        currentUser = login.GetUserDetails(authToken);
+    }
 }
 
 <div class="sidebar" id="mySidebar">
@@ -38,7 +38,7 @@ currentUser = login.GetUserDetails(authToken);
     <a href="@Url.Action("Challenges", "Challenge")">Challenges</a>
     @if (currentUser?.Level == URole.Admin)
     {
-    <a href="@Url.Action("Index", "Admin")">Admin Panel</a>
+        <a href="@Url.Action("AdminPanel", "Admin")">Admin Panel</a>
     }
     <a href="@Url.Action("Logout", "Login")">Logout</a>
 </div>
@@ -49,7 +49,7 @@ currentUser = login.GetUserDetails(authToken);
     <div class="welcome-message">
         @if (currentUser != null)
         {
-        <h2>Welcome, @currentUser.Username</h2>
+            <h2>Welcome, @currentUser.Username</h2>
         }
     </div>
 

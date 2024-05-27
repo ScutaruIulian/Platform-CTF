@@ -5,10 +5,10 @@ namespace PlatformCTF.BusinessLogic.DBModel.Seed
 {
     public class SessionContext : DbContext
     {
-        public SessionContext() : base("name=ULogin")
+        public SessionContext() : base("ULogin")
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<SessionContext>());
         }
+
         public virtual DbSet<Session> Sessions { get; set; }
     }
 }

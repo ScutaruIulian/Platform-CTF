@@ -9,13 +9,13 @@
     <link href="~/Content/Site.css" rel="stylesheet"/>
 </head>
 <body>
-@if (!String.IsNullOrEmpty(ViewBag.NoExercisesMessage))
+@if (!string.IsNullOrEmpty(ViewBag.NoExercisesMessage))
 {
     <p>@ViewBag.NoExercisesMessage</p>
 }
 @model  List<PlatformCTF.Domains.Entities.User.Exercise>
 
-@if (!String.IsNullOrEmpty(ViewBag.Message))
+@if (!string.IsNullOrEmpty(ViewBag.Message))
 {
     <p>@ViewBag.Message</p>
 }

@@ -16,9 +16,10 @@ namespace PlatformCTF.Helpers
 
             return BitConverter.ToString(salt).Replace("-", "").ToLower();
         }
+
         public static string HashGen(string password)
         {
-            string salt = SaltGen();
+            var salt = SaltGen();
             MD5 md5 = new MD5CryptoServiceProvider();
             var originalBytes = Encoding.Default.GetBytes(password + "test");
             var encodedBytes = md5.ComputeHash(originalBytes);

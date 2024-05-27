@@ -1,6 +1,5 @@
 ﻿using PlatformCTF.BusinessLogic.Interfaces;
 
-
 namespace PlatformCTF.BusinessLogic
 {
     public class BusinessLogic
@@ -9,6 +8,7 @@ namespace PlatformCTF.BusinessLogic
         {
             return new SessionBl();
         }
+
         public ISessionAdmin GetSessionAdminBL()
         {
             return new AdminSessionBl();
