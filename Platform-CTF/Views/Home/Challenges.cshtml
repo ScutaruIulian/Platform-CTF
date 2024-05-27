@@ -72,10 +72,10 @@
             $.ajax({
                 type: "POST",
                 url: url,
-                data: form.serialize(), // serializes the form's elements.
+                data: form.serialize(), 
                 success: function(data)
                 {
-                    alert(data.StatusMsg); // show response from the server.
+                    alert(data.StatusMsg); 
                 }
             });
         });

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="RD-241.15989.179">
-    <data-source name="Microsoft SQL Server (JetBrains)" uuid="37102648-82f2-456d-af85-d82896ea2436">
+    <data-source name="Microsoft SQL Server (JetBrains)" uuid="a4c7cdfc-26d7-4575-91e8-29593f9f87c7">
       <database-info product="Microsoft SQL Server" version="16.00.1000" jdbc-version="4.2" driver-name="JetBrains JDBC Driver for SQL Server" driver-version="1.0" dbms="MSSQL" exact-version="16.0.1000" exact-driver-version="1.0">
         <extra-name-characters>$#@</extra-name-characters>
         <identifier-quote-string>&quot;</identifier-quote-string>

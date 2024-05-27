@@ -1,69 +1,59 @@
 ﻿@{
-    ViewBag .Title = "Home";
-    
+ViewBag.Title = "";
 }
 
 <!DOCTYPE html>
- 
 <html>
 
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>QWERTY CTF Home Page</title>
-    <link href="~/Content/Site.css" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width" />
-    <title>QWERTY CTF Home Page</title>
-    <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #f0f0f0;
-            }
-
-            .home {
-                text-align: center;
-                margin-top: 100px;
-            }
-
-            .auth {
-                list-style: none;
-                padding: 0;
-                margin-bottom: 10px;
-            }
-
-                .auth button {
-                    padding: 10px 20px;
-                    font-size: 16px;
-                    border: none;
-                    background-color: #007bff;
-                    color: #fff;
-                    cursor: pointer;
-                    border-radius: 5px;
-                }
-
-                    .auth button:hover {
-                        background-color: #0056b3;
-                    }
-        </style>
+    <title>@ViewBag.Title - QWERTY CTF Home Page</title>
+    <link rel="stylesheet" href="~/Content/Globalstyle.css">
 </head>
 
 <body>
-  
-<div class="home">
-    <h2>QWERTY CTF Home Page</h2>
-    <ul class="auth">
-        <form action="@Url.Action("", "Login")" method="get">
-            <button type="submit">Login</button>
-        </form>
-    </ul>
-    <ul class="auth">
-        <form action="@Url.Action("", "Register")" method="get">
-            <button type="submit">Register</button>
-        </form>
-    </ul>
+<div class="sidebar" id="mySidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">Scoreboard</a>
+    <a href="#">Regulament</a>
+    <a href="#">Challanges</a>
 </div>
 
+<button class="openbtn" onclick="toggleNav()">☰ Menu</button>
+
+<div class="home">
+    <h2>@ViewBag.Title QWERTY CTF Home Page</h2>
+    <div class="auth">
+        <form action="@Url.Action("Index", "Login")" method="get">
+            <button type="submit">Login</button>
+        </form>
+        <form action="@Url.Action("Index", "Register")" method="get">
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function toggleNav() {
+        var sidebar = document.getElementById("mySidebar");
+        var openbtn = document.getElementsByClassName("openbtn")[0];
+        if (sidebar.style.width === "250px") {
+            closeNav();
+            openbtn.style.marginLeft = "0";
+        } else {
+            openNav();
+            openbtn.style.marginLeft = "250px";
+        }
+    }
+
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+    }
+</script>
 </body>
 
 </html>

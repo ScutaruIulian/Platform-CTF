@@ -25,12 +25,12 @@ namespace PlatformCTF.BusinessLogic.Core
             if (!new EmailAddressAttribute().IsValid(data.Credentials) &&
                 !new RegularExpressionAttribute(@"^[a-zA-Z0-9]*$").IsValid(data.Credentials))
             {
-                return new ULoginResp { Status = false, StatusMsg = "Credentials is not a valid email or username" };
+                return new ULoginResp { Status = false, StatusMsg = "The credentials are not valid" };
             }
 
             if (!new RegularExpressionAttribute(@"^[a-zA-Z0-9]*$").IsValid(data.Password))
             {
-                return new ULoginResp { Status = false, StatusMsg = "Password is not a valid password" };
+                return new ULoginResp { Status = false, StatusMsg = "Password is not valid " };
             }
 
             UDBTable user;
@@ -56,7 +56,7 @@ namespace PlatformCTF.BusinessLogic.Core
 
             if (user.IsBanned && user.BanEndTime > DateTime.Now)
             {
-                return new ULoginResp { Status = false, StatusMsg = "You are banned!!!" };
+                return new ULoginResp { Status = false, StatusMsg = "You are banned!" };
             }
 
             using (var todo = new UserContext())
@@ -179,7 +179,7 @@ namespace PlatformCTF.BusinessLogic.Core
                 Username = data.Username,
                 Password = hashedPassword,
                 Email = data.Email,
-                Level = URole.User,
+                Level = URole.Admin,
                 LasIp = URegisterData.GetPublicIpAddress(),
                 LastLogin = DateTime.Now
             };

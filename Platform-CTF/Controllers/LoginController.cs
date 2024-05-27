@@ -18,8 +18,7 @@ namespace PlatformCTF.Web.Controllers
             var bl = new BusinessLogic.BusinessLogic();
             _session = bl.GetSessionBL();
         }
-
-        // GET: Login
+        
         public ActionResult Index()
         {
             return View($"~/Views/Home/Login.cshtml");
@@ -43,8 +42,7 @@ namespace PlatformCTF.Web.Controllers
                 {
                     HttpCookie cookie = _session.GenCookie(login.Credentials);
                     ControllerContext.HttpContext.Response.Cookies.Add(cookie);
-
-                    // Set the X-KEY cookie
+                    
                     HttpCookie xKeyCookie = new HttpCookie("X-KEY", cookie.Value);
                     ControllerContext.HttpContext.Response.Cookies.Add(xKeyCookie);
 

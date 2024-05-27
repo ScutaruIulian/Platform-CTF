@@ -31,39 +31,6 @@ namespace Platform_CTF.Controllers
 
             return View("~/Views/Home/AdminPanel.cshtml", model);
         }
-
-        /*[HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult AddExercise(Exercise exercise)
-        {
-            var resp = _sessionAdmin.AddExercise(exercise);
-            if (resp.Status)
-            {
-                // Create a new Challenge
-                var challenge = new Challenge
-                {
-                    Name = exercise.Name,
-                    Description = exercise.Description,
-                    Category = exercise.Category,
-                    Flag = exercise.Flag
-                };
-
-                // Add the Challenge to the database
-                using (var db = new ExerciseContext())
-                {
-                    db.Exercises.Add(exercise);
-                    db.SaveChanges();
-                }
-
-                return RedirectToAction("Index", "Challenge");
-            }
-            else
-            {
-                ModelState.AddModelError("", resp.StatusMsg);
-                return View($"~/Views/Home/AdminPanel.cshtml");
-            }
-        }*/
-
         public ActionResult BanUser(int id)
         {
             using (var db = new UserContext())

@@ -1,48 +1,87 @@
 ﻿@{
-    ViewBag.Title = "Login";
+ViewBag.Title = "Login";
 }
 @model Platform_CTF.Models.UserLogin
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width"/>
-    <title>Login</title>
-    <link href="~/Content/Site.css" rel="stylesheet"/>
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/LoginStyle.css">
 </head>
 <body>
-<div class="login">
-    <h2>Login</h2>
-    @if ((ViewBag.UsernameDoesntMatch ?? false) || (ViewBag.EmailDoesntMatch ?? false) || (ViewBag.PasswordDoesntMatch ?? false))   
-    {
+<div class="sidebar" id="mySidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">Scoreboard</a>
+    <a href="#">Regulament</a>
+    <a href="#">Challanges</a>
+</div>
+
+<button class="openbtn" onclick="toggleNav()">☰ Menu</button>
+
+<div class="login-container">
+    <div class="login">
+        <h2>Login</h2>
+        @if (ViewBag.StatusMsg != null)
+        {
         <div class="alert alert-danger">
             @ViewBag.StatusMsg
-            @if (ViewBag.UsernameDoesntMatch ?? false)
-            {
-                <p>Username doesn't match.</p>
-            }
-            @if (ViewBag.EmailDoesntMatch ?? false)
-            {
-                <p>Email doesn't match.</p>
-            }
-            @if (ViewBag.PasswordDoesntMatch ?? false)
-            {
-                <p>Password doesn't match.</p>
-            }
         </div>
-    }
-    @using (Html.BeginForm("Index", "Login", FormMethod.Post))
-    {
+        }
+        @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+        {
         @Html.AntiForgeryToken()
         <div class="form-group">
             <label>Credentials</label>
             @Html.TextBoxFor(model => model.Credentials, new { @class = "form-control" })
+            @if (ViewBag.UsernameDoesntMatch ?? false)
+            {
+            <div class="error-message">Username doesn't match.</div>
+            }
+            @if (ViewBag.EmailDoesntMatch ?? false)
+            {
+            <div class="error-message">Email doesn't match.</div>
+            }
         </div>
         <div class="form-group">
             <label>Password</label>
             @Html.TextBoxFor(model => model.Password, new { @class = "form-control", name = "password", type = "password" })
+            @if (ViewBag.PasswordDoesntMatch ?? false)
+            {
+            <div class="error-message">Password doesn't match.</div>
+            }
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
-    }
+        }
+    </div>
+    <div class="register">
+        @using (Html.BeginForm("Index", "Register", FormMethod.Get))
+        {
+        <button type="submit" class="btn btn-secondary">Register</button>
+        }
+    </div>
 </div>
+
+<script>
+    function toggleNav() {
+        var sidebar = document.getElementById("mySidebar");
+        var openbtn = document.getElementsByClassName("openbtn")[0];
+        if (sidebar.style.width === "250px") {
+            closeNav();
+            openbtn.style.marginLeft = "0";
+        } else {
+            openNav();
+            openbtn.style.marginLeft = "250px";
+        }
+    }
+
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+    }
+</script>
 </body>
 </html>

@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Platform_CTF.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Platform_CTF.MvcApplication" Language="C#" %>

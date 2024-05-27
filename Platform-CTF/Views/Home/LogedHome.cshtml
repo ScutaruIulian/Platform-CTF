@@ -6,13 +6,24 @@
 }
 
 <!DOCTYPE html>
-// This is the home page for the logged user
-<div class="logedHome">
-    <h2>Welcome</h2>
-    <p>Here you can see all the available challenges and your progress.</p>
-    <p>Good luck!</p>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/Globalstyle.css">
+</head>
+<body>
+<div class="sidebar" id="mySidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">Scoreboard</a>
+    <a href="#">Regulament</a>
+    <a href="#">Challanges</a>
 </div>
-@{
+
+<button class="openbtn" onclick="toggleNav()">Menu</button>
+
+<div class="logedHome">
+    @{
         var authCookie = Request.Cookies["X-KEY"];
         UserMinimal currentUser = null;
 
@@ -24,17 +35,47 @@
             currentUser = login.GetUserDetails(authToken);
         }
 
+        if (currentUser != null)
+        {
+            <h2>Welcome, @currentUser.Username</h2>
+        }
+
+        <p>Here you can see all the available challenges and your progress.</p>
+        <p>Good luck!</p>
+
         if (currentUser?.Level == URole.Admin)
         {
-        <a href="@Url.Action("Index", "Admin")" class="btn btn-primary">Admin Panel</a>
-    }
-}
+            <a href="@Url.Action("Index", "Admin")" class="btn btn-primary">Admin Panel</a>
+        }
 
-@{
-    if (currentUser?.Level == URole.Admin || currentUser?.Level == URole.User)
-    {
-        <a href="@Url.Action("Challenges", "Challenge")" class="btn btn-primary">Challenges</a>
+        if (currentUser?.Level == URole.Admin || currentUser?.Level == URole.User)
+        {
+            <a href="@Url.Action("Challenges", "Challenge")" class="btn btn-primary">Challenges</a>
+        }
     }
-}
+    @Html.ActionLink("Logout", "Logout", "Login", new { area = "" }, new { @class = "btn btn-primary" })
+</div>
 
-@Html.ActionLink("Logout", "Logout", "Login")
+<script>
+    function toggleNav() {
+        var sidebar = document.getElementById("mySidebar");
+        var openbtn = document.getElementsByClassName("openbtn")[0];
+        if (sidebar.style.width === "250px") {
+            closeNav();
+            openbtn.style.marginLeft = "0";
+        } else {
+            openNav();
+            openbtn.style.marginLeft = "250px";
+        }
+    }
+
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+    }
+</script>
+</body>
+</html>

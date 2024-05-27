@@ -89,12 +89,10 @@ else
                 type: 'POST',
                 data: $(this).serialize(),
                 success: function(result) {
-                    // Handle success - show a message, clear the form, etc.
                     alert('Exercise added successfully');
                     $('#addExerciseForm')[0].reset();
                 },
                 error: function(xhr, status, error) {
-                    // Handle error - show an error message, etc.
                     alert('Error: ' + error);
                 }
             });

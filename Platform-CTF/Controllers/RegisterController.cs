@@ -2,7 +2,7 @@
 using PlatformCTF.BusinessLogic.Interfaces;
 using PlatformCTF.Domains.Entities.User;
 
-namespace PlatformCTF.Controllers
+namespace Platform_CTF.Controllers
 {
     public class RegisterController : Controller
     {
@@ -10,7 +10,7 @@ namespace PlatformCTF.Controllers
 
         public RegisterController()
         {
-            var bl = new BusinessLogic.BusinessLogic();
+            var bl = new PlatformCTF.BusinessLogic.BusinessLogic();
             _session = bl.GetSessionBL();
         }
 
