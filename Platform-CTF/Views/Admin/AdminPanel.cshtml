@@ -28,7 +28,7 @@
 <body>
 <div class="sidebar" id="mySidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">Scoreboard</a>
+    <a href="@Url.Action("Scoreboard", "Scoreboard")">Scoreboard</a>
     <a href="#">Regulament</a>
     <a href="@Url.Action("Challenges", "Challenge")">Challenges</a>
     @if (currentUser?.Level == URole.Admin)

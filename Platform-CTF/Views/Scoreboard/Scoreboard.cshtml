@@ -1,0 +1,81 @@
+﻿@model dynamic
+
+@{
+ViewBag.Title = "Scoreboard";
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - QWERTY CTF </title>
+    <link rel="stylesheet" href="~/Content/Scoreboard.css" type="text/css" />
+</head>
+
+<body>
+<div class="sidebar" id="mySidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="@Url.Action("Scoreboard", "Scoreboard")">Scoreboard</a>
+    <a href="#">Regulament</a>
+    <a href="@Url.Action("Challenges", "Challenge")">Challenges</a>
+</div>
+
+<button class="openbtn" onclick="toggleNav()">☰ Menu</button>
+
+<div class="home">
+    <h2>@ViewBag.Title QWERTY CTF Home Page</h2>
+</div>
+
+<main>
+    <table class="user-table">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Score</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var user in Model)
+        {
+        <tr>
+            <td>@user.Username</td>
+            <td>@user.Score</td>
+        </tr>
+        }
+        </tbody>
+    </table>
+</main>
+
+<script>
+    function toggleNav() {
+        var sidebar = document.getElementById("mySidebar");
+        var openbtn = document.getElementsByClassName("openbtn")[0];
+        if (sidebar.style.width === "250px") {
+            closeNav();
+            openbtn.style.marginLeft = "0";
+        } else {
+            openNav();
+            openbtn.style.marginLeft = "250px";
+        }
+    }
+
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const validationSummary = document.querySelector(".validation-summary-errors");
+        const validationContainer = document.getElementById("validationSummaryContainer");
+        if (validationSummary && validationContainer) {
+            validationContainer.appendChild(validationSummary);
+        }
+    });
+</script>
+</body>
+
+</html>

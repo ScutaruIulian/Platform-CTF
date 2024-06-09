@@ -31,5 +31,7 @@ namespace PlatformCTF.Domains.Entities.User
         [StringLength(30)] public string LastIp { get; set; }
 
         public URole Level { get; set; }
+        
+        public int Score { get; set; }
     }
 }

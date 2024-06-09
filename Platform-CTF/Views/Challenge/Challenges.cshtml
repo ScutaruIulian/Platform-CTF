@@ -1,59 +1,95 @@
 @{
-    ViewBag.Title = "Challenges";
+ViewBag.Title = "Challenges";
 }
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta name="viewport" content="width=device-width"/>
-    <title>Register</title>
-    <link href="~/Content/Site.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - QWERTY CTF </title>
+    <link rel="stylesheet" href="~/Content/Challanges.css" type="text/css" />
 </head>
+
 <body>
+<div class="sidebar" id="mySidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="@Url.Action("Scoreboard", "Scoreboard")">Scoreboard</a>
+    <a href="#">Regulament</a>
+    <a href="@Url.Action("Challenges", "Challenge")">Challenges</a>
+</div>
+
+<button class="openbtn" onclick="toggleNav()">☰ Menu</button>
+
+<div class="home">
+    <h2>@ViewBag.Title QWERTY CTF </h2>
+</div>
+
 @if (!string.IsNullOrEmpty(ViewBag.NoExercisesMessage))
 {
-    <p>@ViewBag.NoExercisesMessage</p>
+<p>@ViewBag.NoExercisesMessage</p>
 }
-@model  List<PlatformCTF.Domains.Entities.User.Exercise>
 
 @if (!string.IsNullOrEmpty(ViewBag.Message))
 {
-    <p>@ViewBag.Message</p>
+<p>@ViewBag.Message</p>
 }
-<h2>Challenges</h2>
+
 <div class="challenge-container">
     @if (Model != null)
     {
-        foreach (var exercise in Model)
-        {
-            <div class="challenge">
-                <h3>@exercise.Name</h3>
-                <p>@exercise.Description</p>
-                <p>Level: @exercise.Level</p>
-                <p>Category: @exercise.Category</p>
-                <a href="@exercise.DownloadLink" class="download-link">Download Link</a>
-                <button class="challenge-button" data-id="@exercise.Id">Open Challenge</button>
+    foreach (var exercise in Model)
+    {
+    <div class="challenge">
+        <h3>@exercise.Name</h3>
+        <p>@exercise.Description</p>
+        <p>Level: @exercise.Level</p>
+        <p>Category: @exercise.Category</p>
+        <a href="@exercise.DownloadLink" class="download-link">Download Link</a>
+        <button class="challenge-button" data-id="@exercise.Id">Open Challenge</button>
 
-                <form action="@Url.Action("SubmitFlag", "Challenge")" method="post">
-                    <input type="hidden" name="challengeId" value="@exercise.Id"/>
-                    <input type="hidden" name="userId" value="@ViewBag.UserId"/>
-                    <input type="text" name="submittedFlag" placeholder="Enter your flag"/>
-                    <input type="submit" value="Submit Flag"/>
-                </form>
-            </div>
-            <div id="popup-@exercise.Id" class="popup-window" style="display: none;">
-                <h3>@exercise.Name</h3>
-                <p>@exercise.Description</p>
-                <button class="popup-close">Close</button>
-            </div>
-        }
+        <form action="@Url.Action("SubmitFlag", "Challenge")" method="post">
+            <input type="hidden" name="challengeId" value="@exercise.Id" />
+            <input type="hidden" name="userId" value="@ViewBag.UserId" />
+            <input type="text" name="submittedFlag" placeholder="Enter your flag" />
+            <input type="submit" value="Submit Flag" class="submit-button" />
+        </form>
+    </div>
+    <div id="popup-@exercise.Id" class="popup-window" style="display: none;">
+        <h3>@exercise.Name</h3>
+        <p>@exercise.Description</p>
+        <button class="popup-close">Close</button>
+    </div>
+    }
     }
     else
     {
-        <p>No challenges available</p>
+    <p>No challenges available</p>
     }
 </div>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+    function toggleNav() {
+        var sidebar = document.getElementById("mySidebar");
+        var openbtn = document.getElementsByClassName("openbtn")[0];
+        if (sidebar.style.width === "250px") {
+            closeNav();
+            openbtn.style.marginLeft = "0";
+        } else {
+            openNav();
+            openbtn.style.marginLeft = "250px";
+        }
+    }
+
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+    }
+
     $(document).ready(function() {
         $('.challenge-button').on('click', function() {
             var id = $(this).data('id');
@@ -72,14 +108,14 @@
             $.ajax({
                 type: "POST",
                 url: url,
-                data: form.serialize(), 
-                success: function(data)
-                {
-                    alert(data.StatusMsg); 
+                data: form.serialize(),
+                success: function(data) {
+                    alert(data.StatusMsg);
                 }
             });
         });
     });
 </script>
 </body>
+
 </html>

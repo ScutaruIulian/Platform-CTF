@@ -149,7 +149,8 @@ namespace PlatformCTF.BusinessLogic.Core
                 Email = data.Email,
                 Level = URole.Admin,
                 LastIp = data.IpAddress,
-                LastLogin = DateTime.Now
+                LastLogin = DateTime.Now,
+                Score = 0
             };
 
             using (var db = new UserContext())
@@ -188,6 +189,17 @@ namespace PlatformCTF.BusinessLogic.Core
             if (challenge.Flag == submittedFlag)
                 return new ULoginResp { Status = true, StatusMsg = "Correct flag!" };
             return new ULoginResp { Status = false, StatusMsg = "Incorrect flag." };
+        }
+        internal List<UDBTable> GetAllUsersPoints()
+        {
+            List<UDBTable> users;
+
+            using (var db = new UserContext())
+            {
+                users = db.Users.OrderByDescending(user => user.Score).ToList();
+            }
+
+            return users;
         }
     }
 }

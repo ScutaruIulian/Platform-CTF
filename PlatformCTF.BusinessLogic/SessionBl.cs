@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System.Collections.Generic;
+using System.Web;
 using PlatformCTF.BusinessLogic.Core;
 using PlatformCTF.BusinessLogic.Interfaces;
 using PlatformCTF.Domain.Entities.User;
@@ -36,6 +37,11 @@ namespace PlatformCTF.BusinessLogic
         public ULoginResp SubmitFlag(int challengeId, string submittedFlag)
         {
             return SubmitFlagAction(challengeId, submittedFlag);
+        }
+
+        public List<UDBTable> GetScoreBoardStatus()
+        {
+            return GetAllUsersPoints();
         }
     }
 }

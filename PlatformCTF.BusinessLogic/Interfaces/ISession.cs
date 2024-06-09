@@ -1,4 +1,6 @@
-﻿using System.Web;
+﻿using System.Collections.Generic;
+using System.Net.Sockets;
+using System.Web;
 using PlatformCTF.Domain.Entities.User;
 using PlatformCTF.Domains.Entities.User;
 
@@ -12,5 +14,6 @@ namespace PlatformCTF.BusinessLogic.Interfaces
         ULoginResp UserRegister(URegisterData uRegisterData);
         ULoginResp ShowAllExercises();
         ULoginResp SubmitFlag(int challengeId, string submittedFlag);
+        List<UDBTable> GetScoreBoardStatus();
     }
 }

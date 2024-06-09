@@ -271,19 +271,21 @@
     </ItemGroup>
     <ItemGroup>
         <Content Include="Content\AdminPanel.css"/>
+        <Content Include="Content\Challanges.css" />
         <Content Include="Content\Globalstyle.css"/>
         <Content Include="Content\LoggedHome.css"/>
         <Content Include="Content\LoginStyle.css"/>
         <Content Include="Content\RegisterStyle.css"/>
+        <Content Include="Content\Scoreboard.css" />
         <Content Include="Global.asax"/>
         <Content Include="Views\Admin\AdminPanel.cshtml"/>
         <Content Include="Views\Challenge\Challenges.cshtml"/>
         <Content Include="Views\Home\Landing.cshtml"/>
         <Content Include="Views\Home\Regulament.cshtml"/>
-        <Content Include="Views\Home\Scoreboard.cshtml"/>
         <Content Include="Views\LoggedUserHome\LoggedHome.cshtml"/>
         <Content Include="Views\Login\Login.cshtml"/>
         <Content Include="Views\Register\Register.cshtml"/>
+        <Content Include="Views\Scoreboard\Scoreboard.cshtml" />
         <Content Include="Web.config"/>
     </ItemGroup>
     <ItemGroup>
@@ -297,6 +299,7 @@
         <Compile Include="Controllers\LogedUserHomeController.cs"/>
         <Compile Include="Controllers\LoginController.cs"/>
         <Compile Include="Controllers\RegisterController.cs"/>
+        <Compile Include="Controllers\ScoreboardController.cs" />
         <Compile Include="Global.asax.cs">
             <DependentUpon>Global.asax</DependentUpon>
         </Compile>

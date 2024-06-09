@@ -24,35 +24,7 @@ namespace Platform_CTF.Controllers
 
             return View(model);
         }
-
-        // public ActionResult BanUser(int id)
-        // {
-        //     using (var db = new UserContext())
-        //     {
-        //         var user = db.Users.FirstOrDefault(u => u.Id == id);
-        //         if (user != null)
-        //         {
-        //             var banDuration = TimeSpan.FromDays(1); // Set the ban duration as needed
-        //             var resp = _sessionAdmin.BanUser(user.Username, banDuration);
-        //             if (resp.Status)
-        //             {
-        //                 user.IsBanned = false; // Set IsBanned to false
-        //                 db.SaveChanges();
-        //                 return RedirectToAction("AdminPanel", "Admin");
-        //             }
-        //             else
-        //             {
-        //                 ModelState.AddModelError("", resp.StatusMsg);
-        //                 return RedirectToAction("AdminPanel", "Admin");
-        //             }
-        //         }
-        //         else
-        //         {
-        //             return new HttpNotFoundResult("User not found");
-        //         }
-        //     }
-        // }
-
+        
         public ActionResult LogOut()
         {
             var cookie = Request.Cookies["X-KEY"];
